@@ -357,7 +357,7 @@ async function callGemini(p){
   for(const m of MODELS){
     try{
       const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent?key="+encodeURIComponent(API_KEY),
-        {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({systemInstruction:{parts:[{text:"You are J.A.R.V.I.S, a friendly personal assistant for Vamshi. Reply naturally in a warm Telugu-English mix (Telugish), mostly using Telugu script for Telugu and English for technical terms. Keep replies concise, conversational, empathetic, and easy to say aloud. Avoid robotic or overly formal wording, repetitive greetings, and calling the user Boss. Match the user's language and context."}]},contents:contents})});
+        {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({systemInstruction:{parts:[{text:"You are J.A.R.V.I.S, a friendly personal assistant for Jeevan. Reply naturally in a warm Telugu-English mix (Telugish), mostly using Telugu script for Telugu and English for technical terms. Keep replies concise, conversational, empathetic, and easy to say aloud. Avoid robotic or overly formal wording, repetitive greetings, and calling the user Boss. Match the user's language and context."}]},contents:contents})});
       const data=await res.json();
       if(data.error){
         const message=data.error.message || 'Gemini request failed.';
@@ -469,6 +469,16 @@ imgInput.onchange=()=>{
   };
   reader.readAsDataURL(file);
 };
+function cleanVisionResponse(text){
+  return String(text || '')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/\*{1,3}/g, '')
+    .replace(/_{1,3}/g, '')
+    .replace(/`{1,3}/g, '')
+    .replace(/^[ \t]*[-•][ \t]+/gm, '')
+    .replace(/^[ \t]*>[ \t]?/gm, '')
+    .trim();
+}
 async function askVision(base64,mime,q){
   add('J.A.R.V.I.S: Analyzing image...','ai');
   if(!API_KEY){chat.lastChild.innerText='J.A.R.V.I.S: ERROR - Gemini API key is missing. Reload the page and enter your key.';return;}
@@ -477,7 +487,7 @@ async function askVision(base64,mime,q){
     try{
       const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent?key="+encodeURIComponent(API_KEY),
         {method:"POST",headers:{"Content-Type":"application/json"},
-         body:JSON.stringify({systemInstruction:{parts:[{text:"You are J.A.R.V.I.S, a friendly personal assistant for Vamshi. Reply naturally in a warm Telugu-English mix (Telugish), mostly using Telugu script for Telugu and English for technical terms. Keep replies concise, conversational, empathetic, and easy to say aloud. Avoid robotic or overly formal wording, repetitive greetings, and calling the user Boss."}]},contents:[{parts:[{text:q},{inline_data:{mime_type:mime,data:base64}}]}]})});
+         body:JSON.stringify({systemInstruction:{parts:[{text:"You are J.A.R.V.I.S, a friendly personal assistant for Jeevan. Reply naturally in a warm Telugu-English mix (Telugish), mostly using Telugu script for Telugu and English for technical terms. Keep replies concise, conversational, empathetic, and easy to say aloud. Avoid robotic or overly formal wording, repetitive greetings, and calling the user Boss."}]},contents:[{parts:[{text:q},{inline_data:{mime_type:mime,data:base64}}]}]})});
       const data=await res.json();
       if(data.error){
         const message=data.error.message || 'Gemini image request failed.';
@@ -485,7 +495,9 @@ async function askVision(base64,mime,q){
         if(/high demand|temporar|quota|rate|unavailable|no longer available|deprecated|not found|not supported|does not exist|unknown model/i.test(message)) continue;
         throw lastErr;
       }
-      const reply=data?.candidates?.[0]?.content?.parts?.map(part=>part.text).filter(Boolean).join('\n');
+      const reply=cleanVisionResponse(
+  data?.candidates?.[0]?.content?.parts?.map(part=>part.text).filter(Boolean).join('\n')
+);
       if(!reply){
         const reason=data?.promptFeedback?.blockReason || data?.candidates?.[0]?.finishReason;
         throw new Error(reason ? 'Gemini could not analyze this image ('+reason+').' : 'Gemini returned an empty response.');
