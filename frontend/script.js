@@ -1,17 +1,1155 @@
+Loading older messages…
+vati lo yedhi best cheppuone line li
+New code is best overall — AI, JARVIS personality, date awareness, tools, Nano Music, contacts, and command handling are more advanced.
+
+old code lo ki new code features ni add chesi full code ivvu   name Jeevan anni vunadali
+
+Worked for 6m 7s
+Done. I merged the old code + new code features, while keeping the old UI/history/sidebar/orb architecture.
+
+Added/merged:
+
+Jeevan name everywhere — old Chandu/Vamshi/Vamsi references removed.
+New Gemini model list
+Jeevan + JARVIS personality prompt
+Current IST date awareness
+Nano Music commands
+Instagram/Facebook/X/WhatsApp/Telegram/Gmail/GitHub/Spotify aliases
+Phone contact sync/add/delete/call
+WhatsApp contact messaging
+YouTube + Google search
+Reminder + timer restore
+Alarm with sound/vibration
+JARVIS voice hum effect
+“Hey Jarvis” wake word
+Screen Wake Lock
+Startup greeting
+Improved Agent Mode fallback/summary
+Existing old memory/history/settings/orb features preserved
+I also checked the merged JavaScript with node --check — syntax check passed.
+
+Full merged code
+Note: Boss is still used as JARVIS's title/address, but the actual user's name is Jeevan.
+
+
+CHITTI_JARVIS_Jeevan_Merged.js
+Code
+download ravatam ledhukani ha code yela rayali yela vundali enti anni propmt ivvu
+అవును 👍 Download కాకపోతే file ఇవ్వకుండా, Claude Code / Google AI Studio కి paste చేయడానికి ఒక complete master prompt ఇస్తాను.
+
+ఈ prompt లో ముఖ్యంగా old code structure preserve చేసి, new code features merge చేయాలి, మరియు Jeevan మాత్రమే user name ఉండాలి.
+
+You are an expert JavaScript engineer.
+
+I have an existing J.A.R.V.I.S.-style personal AI assistant JavaScript project.
+
+IMPORTANT:
+Do NOT redesign the project.
+Do NOT remove existing working functionality.
+Do NOT create a simplified replacement.
+Do NOT rewrite the project from scratch.
+
+Your job is:
+
+OLD CODE + NEW CODE FEATURES = ONE FINAL STABLE CODE
+
+The OLD CODE architecture, UI behavior, memory/history system, sidebar, settings, orb visualization, voice system, timer system, and existing command handling must remain intact.
+
+Then carefully merge the useful features from the NEW CODE into the OLD CODE.
+
+==================================================
+1. USER NAME — VERY IMPORTANT
+==================================================
+
+The user's name MUST be:
+
+Jeevan
+
+Remove/replace every occurrence of:
+
+Chandu
+Vamshi
+Vamsi
+
+with:
+
+Jeevan
+
+Do a complete case-insensitive search through the entire JavaScript code.
+
+There must be NO remaining:
+Chandu
+Vamshi
+Vamsi
+
+inside:
+- system prompts
+- Gemini prompts
+- comments where it refers to the user
+- greeting messages
+- voice responses
+- memory prompts
+- UI text
+- command responses
+
+Jeevan is the ONLY user name.
+
+J.A.R.V.I.S. may call the user:
+
+"Jeevan"
+or
+"Boss"
+
+Use both naturally.
+
+Example:
+
+"Good morning, Boss."
+"Jeevan, Chrome open chesthunna."
+"Sure Boss."
+"Done, Jeevan."
+
+==================================================
+2. PRESERVE OLD ARCHITECTURE
+==================================================
+
+The OLD CODE is the base.
+
+Do NOT remove existing:
+
+- HTML element IDs
+- CSS class expectations
+- JavaScript function names
+- event listeners
+- UI state management
+- sidebar
+- conversation history
+- settings
+- theme system
+- memory system
+- orb visualization
+- audio visualizer
+- voice state system
+- timer system
+- notification system
+- vibration
+- JARVIS hum
+- existing Gemini integration
+- existing command parser
+- existing Agent Mode
+- existing tool system
+- existing error handling
+
+If a new feature conflicts with an old function:
+
+DO NOT delete the old function.
+
+Merge the functionality safely.
+
+==================================================
+3. GEMINI MODELS
+==================================================
+
+Use the newer model fallback architecture:
+
+const MODELS = [
+  "gemini-3.6-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-flash-latest"
+];
+
+The code must try models in order.
+
+If one model fails, automatically try the next model.
+
+Do not expose API keys in logs.
+
+==================================================
+4. JEEVAN JARVIS PERSONALITY
+==================================================
+
+Use this as the main Gemini system instruction:
+
+"You are J.A.R.V.I.S., Jeevan's personal AI assistant.
+
+You are inspired by the calm, intelligent and witty personality of J.A.R.V.I.S.
+
+Address the user naturally as Jeevan or Boss.
+
+You are loyal, calm, confident, intelligent and slightly witty.
+
+Use warm Telugu-English mixed language (Telugish).
+
+Use Telugu script for Telugu sentences when appropriate.
+
+Use English for technical terms, application names and commands.
+
+Keep normal answers concise and conversational.
+
+Make responses natural for voice playback.
+
+Do not sound robotic.
+
+Do not repeatedly say the same greeting.
+
+Do not call the user Chandu, Vamshi or Vamsi.
+
+The user's name is Jeevan.
+
+Never break character."
+
+==================================================
+5. CURRENT DATE / IST
+==================================================
+
+Before sending a normal request to Gemini, inject the current India date.
+
+Use:
+
+const todayStr = new Date().toLocaleDateString('en-IN', {
+  timeZone: 'Asia/Kolkata',
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+Send:
+
+"[Today's date is " + todayStr + "] " + userPrompt
+
+This prevents date confusion.
+
+==================================================
+6. MEMORY
+==================================================
+
+Preserve the existing MEMORY system.
+
+Do not replace it.
+
+Continue using recent conversation context.
+
+Example architecture:
+
+const contents = MEMORY.slice(-12).map(m => ({
+  role: m.role,
+  parts: [{ text: m.text }]
+}));
+
+Then append the current user request.
+
+Memory must continue working with:
+
+- user messages
+- assistant messages
+- voice commands
+- typed commands
+- Gemini responses
+
+==================================================
+7. HISTORY / SIDEBAR
+==================================================
+
+Keep the existing conversation history system.
+
+Preserve:
+
+HISTORY_KEY
+
+ACTIVE_CONVERSATION_KEY
+
+conversation creation
+
+conversation titles
+
+new conversation
+
+history rendering
+
+history selection
+
+settings
+
+theme
+
+memory controls
+
+Do NOT remove these.
+
+==================================================
+8. JARVIS ORB
+==================================================
+
+Preserve the existing orb visualization.
+
+Keep:
+
+IDLE
+LISTENING
+THINKING
+SPEAKING
+ERROR
+
+states.
+
+The orb should react correctly to:
+
+- microphone listening
+- Gemini thinking
+- speaking
+- errors
+
+Do not replace the existing orb implementation unless absolutely necessary.
+
+==================================================
+9. VOICE SYSTEM
+==================================================
+
+Preserve existing Speech Recognition and Speech Synthesis.
+
+Voice flow:
+
+Wake word
+→ Listening
+→ Speech-to-text
+→ Command processing
+→ Gemini/tools
+→ Response
+→ Text-to-speech
+→ Speaking
+→ Idle
+
+Prevent duplicate voice sessions.
+
+Do not start multiple recognizers simultaneously.
+
+Handle microphone permission errors gracefully.
+
+==================================================
+10. WAKE WORD
+==================================================
+
+Support:
+
+"hey jarvis"
+
+"hey JARVIS"
+
+"hey chitti"
+
+"hey Chitti"
+
+as wake phrases if the existing architecture supports them.
+
+The important requirement is:
+
+Wake word should activate the assistant.
+
+After wake word detection, listen for the actual command.
+
+Avoid repeatedly triggering itself.
+
+==================================================
+11. WEBSITE COMMANDS
+==================================================
+
+Add/preserve website aliases:
+
+instagram
+insta
+
+facebook
+fb
+
+twitter
+x
+
+whatsapp
+
+telegram
+
+gmail
+
+github
+
+spotify
+
+music
+
+youtube
+
+google
+
+Nano Music
+
+Example:
+
+"open instagram"
+
+"instagram open"
+
+"open whatsapp"
+
+"open telegram"
+
+"open gmail"
+
+"open github"
+
+"open spotify"
+
+"open youtube"
+
+"open google"
+
+These should open the correct website.
+
+==================================================
+12. NANO MUSIC
+==================================================
+
+Add Nano Music command support.
+
+Use a single constant:
+
+const NANO_URL = "https://music.youtube.com";
+
+Allow:
+
+"open nano music"
+
+"nano music open"
+
+"nano music"
+
+"play Believer on nano music"
+
+"nano music play Believer"
+
+Open the search URL for the requested song.
+
+Do not break normal YouTube functionality.
+
+==================================================
+13. YOUTUBE
+==================================================
+
+Support:
+
+"open youtube"
+
+"youtube open"
+
+"play [song]"
+
+"youtube search [query]"
+
+"search youtube for [query]"
+
+Example:
+
+"play Believer"
+
+should search YouTube for Believer.
+
+Return a natural response such as:
+
+"Playing Believer on YouTube, Boss."
+
+==================================================
+14. GOOGLE SEARCH
+==================================================
+
+Support:
+
+"google search [query]"
+
+"search google for [query]"
+
+"search on google [query]"
+
+Open Google search safely.
+
+==================================================
+15. WIKIPEDIA / GENERAL SEARCH
+==================================================
+
+Preserve the existing search tool.
+
+Support:
+
+"search [query]"
+
+"look up [query]"
+
+Use the existing Wikipedia API/search implementation where available.
+
+Do not invent search results.
+
+==================================================
+16. TIME
+==================================================
+
+Support:
+
+"time"
+
+"what time is it"
+
+"current time"
+
+"tell me the time"
+
+"samayam entha"
+
+"టైమ్"
+
+Return India time:
+
+Asia/Kolkata
+
+==================================================
+17. DATE
+==================================================
+
+Support:
+
+"today's date"
+
+"current date"
+
+"what is today's date"
+
+"date today"
+
+Return India date.
+
+==================================================
+18. WEATHER
+==================================================
+
+Preserve the existing weather tool.
+
+Support:
+
+"weather"
+
+"weather in Hyderabad"
+
+"Hyderabad weather"
+
+"weather today"
+
+Do not invent weather information.
+
+If location permission is needed, handle it gracefully.
+
+If city-based weather functionality exists, preserve it.
+
+==================================================
+19. NEWS
+==================================================
+
+Preserve existing news functionality.
+
+Support:
+
+"news"
+
+"latest news"
+
+"headlines"
+
+"research"
+
+Do not fabricate headlines.
+
+==================================================
+20. CRYPTO
+==================================================
+
+Preserve existing crypto tool.
+
+Support:
+
+bitcoin
+
+BTC
+
+crypto
+
+Do not fabricate prices.
+
+==================================================
+21. AGENT MODE
+==================================================
+
+Preserve the existing Agent Mode.
+
+Agent tools:
+
+time
+weather
+news
+crypto
+
+Use:
+
+const AGENT_TOOLS = {
+  time: async () => handleTools("current time"),
+  weather: async () => handleTools("weather"),
+  news: async () => handleTools("news"),
+  crypto: async () => handleTools("bitcoin")
+};
+
+Agent requests include:
+
+agent
+
+agent mode
+
+run agent
+
+use agent
+
+briefing
+
+research
+
+analyze
+
+analysis
+
+and appropriate planning requests.
+
+==================================================
+22. AGENT FALLBACK
+==================================================
+
+If Gemini is temporarily unavailable because of:
+
+429
+503
+quota
+rate limit
+overload
+temporary failure
+network error
+unknown model
+
+use the existing safe fallback planner.
+
+Fallback should identify tools locally.
+
+Example:
+
+morning briefing
+→ time + weather + news
+
+crypto request
+→ crypto
+
+weather request
+→ weather
+
+time request
+→ time
+
+==================================================
+23. AGENT SUMMARY
+==================================================
+
+After tools finish, summarize only using actual tool results.
+
+Use this logic:
+
+"Goal: " + goal +
+". Tool results: " + results +
+". Give a short natural spoken answer in the user's language. " +
+"Use only facts in the results; do not invent weather, headlines, or prices. " +
+"Clearly mention any unavailable tool."
+
+If Gemini fails during summary, use local tool-result summary.
+
+==================================================
+24. PHONE CONTACTS
+==================================================
+
+Preserve/add phone contact support where browser support exists.
+
+Support:
+
+"sync contacts"
+
+Use:
+
+navigator.contacts.select(
+  ['name', 'tel'],
+  { multiple: true }
+)
+
+Store contacts safely in:
+
+localStorage.jarvis_contacts
+
+Do not upload contacts to third-party services.
+
+==================================================
+25. CALL CONTACT
+==================================================
+
+Support:
+
+"call Rahul"
+
+"please call Rahul"
+
+Use stored contacts.
+
+Normalize phone number safely.
+
+If the browser/device supports tel:
+
+window.location.href = "tel:" + number;
+
+If contact does not exist:
+
+"Jeevan, Rahul contact lo number dorakaledu."
+
+==================================================
+26. WHATSAPP CONTACT MESSAGE
+==================================================
+
+Support:
+
+"WhatsApp Rahul hello"
+
+"message Rahul on WhatsApp hello"
+
+Use stored contact numbers.
+
+Open:
+
+https://wa.me/
+
+with encoded message.
+
+Do NOT send arbitrary messages silently if the architecture requires confirmation.
+
+Preserve existing confirmation/security behavior.
+
+==================================================
+27. WHATSAPP OPEN
+==================================================
+
+Support:
+
+"open whatsapp"
+
+"whatsapp open"
+
+For Android where supported, use WhatsApp Android intent.
+
+For browser fallback, use WhatsApp Web.
+
+Do not break desktop browser behavior.
+
+==================================================
+28. OPEN APPLICATION / WEBSITE
+==================================================
+
+Preserve existing open command parser.
+
+Support:
+
+"open chrome"
+
+"chrome open"
+
+"open spotify"
+
+"spotify open"
+
+"open github"
+
+"open telegram"
+
+Only open known safe website/application aliases.
+
+Do not execute arbitrary shell commands from user input.
+
+==================================================
+29. URL SAFETY
+==================================================
+
+If user says:
+
+"open https://example.com"
+
+Only allow:
+
+http:
+https:
+
+Reject:
+
+javascript:
+data:
+file:
+shell:
+other dangerous protocols.
+
+==================================================
+30. SECURITY
+==================================================
+
+Never execute arbitrary JavaScript from user voice commands.
+
+Never execute arbitrary shell commands.
+
+Never expose:
+
+API keys
+tokens
+passwords
+private contact information
+
+in UI messages or logs.
+
+Preserve existing input filtering.
+
+==================================================
+31. TIMER
+==================================================
+
+Preserve the old timer system.
+
+Support commands such as:
+
+"set timer for 5 minutes"
+
+"timer 10 minutes"
+
+Timer should:
+
+- save end time
+- survive page refresh
+- restore from localStorage
+- notify when completed
+- speak completion
+- vibrate where supported
+
+Do not remove the existing timer implementation.
+
+==================================================
+32. NOTIFICATIONS
+==================================================
+
+Preserve browser notification support.
+
+Request permission only when necessary.
+
+Do not repeatedly ask for permission.
+
+==================================================
+33. JARVIS HUM
+==================================================
+
+Preserve the existing JARVIS background hum.
+
+Do not remove the AudioContext oscillator implementation.
+
+Hum should:
+
+start when appropriate
+
+stop cleanly
+
+not create multiple AudioContexts unnecessarily.
+
+==================================================
+34. TEXT TO SPEECH
+==================================================
+
+Preserve existing TTS.
+
+The response should be spoken naturally.
+
+Support Telugu-English mixed responses.
+
+Avoid speaking raw JSON, code, URLs or internal tool logs.
+
+==================================================
+35. ERROR HANDLING
+==================================================
+
+Every asynchronous tool should use try/catch.
+
+Errors should produce user-friendly messages.
+
+Never expose raw stack traces to the user.
+
+Example:
+
+Instead of:
+
+TypeError: Cannot read properties of undefined...
+
+say:
+
+"Sorry Boss, aa command execute cheyyalekapoyanu."
+
+==================================================
+36. DUPLICATE EXECUTION PREVENTION
+==================================================
+
+Do not execute the same voice command twice because of:
+
+- SpeechRecognition duplicate events
+- repeated wake word
+- double click
+- multiple listeners
+- repeated TTS callback
+
+Use appropriate state guards.
+
+==================================================
+37. EXISTING UI
+==================================================
+
+DO NOT change:
+
+- colors
+- layout
+- buttons
+- orb position
+- sidebar design
+- settings design
+- chat design
+- animations
+
+unless a change is absolutely required for a new feature.
+
+The existing UI is considered FINAL.
+
+==================================================
+38. CODE QUALITY
+==================================================
+
+Do not create duplicate functions.
+
+Before adding a function, search the existing code.
+
+If function already exists:
+
+modify/extend it.
+
+Do NOT create:
+
+handleTools2()
+callGemini2()
+speak2()
+startListening2()
+
+etc.
+
+Keep one canonical implementation.
+
+==================================================
+39. GLOBAL CONSTANTS
+==================================================
+
+Avoid duplicate declarations such as:
+
+const MODELS
+const SITES
+const NANO_URL
+const MEMORY
+
+There must be only one authoritative declaration for each.
+
+==================================================
+40. JAVASCRIPT COMPATIBILITY
+==================================================
+
+The final code must be valid modern browser JavaScript.
+
+Avoid unsupported syntax.
+
+Use async/await safely.
+
+Check:
+
+brackets
+parentheses
+quotes
+template literals
+regex
+object syntax
+function declarations
+
+==================================================
+41. FINAL VALIDATION
+==================================================
+
+Before giving the final code:
+
+1. Search for:
+   Chandu
+   Vamshi
+   Vamsi
+
+They must return ZERO matches.
+
+2. Search for duplicate declarations.
+
+3. Check every function reference.
+
+4. Check every variable reference.
+
+5. Check all event listeners.
+
+6. Check Gemini request body.
+
+7. Check all tool functions.
+
+8. Check Agent Mode.
+
+9. Check voice functions.
+
+10. Check TTS.
+
+11. Check timer.
+
+12. Check history.
+
+13. Check localStorage.
+
+14. Check contact handling.
+
+15. Check WhatsApp.
+
+16. Check website aliases.
+
+17. Check Nano Music.
+
+18. Check YouTube.
+
+19. Check Google.
+
+20. Check weather/news/crypto.
+
+21. Check error handling.
+
+22. Run JavaScript syntax validation equivalent to:
+
+node --check final.js
+
+The final code MUST pass syntax validation.
+
+==================================================
+42. IMPORTANT — DO NOT LOSE OLD FEATURES
+==================================================
+
+The final output must be:
+
+OLD CODE FEATURES
++
+NEW CODE FEATURES
++
+Jeevan name correction
++
+bug fixes
+=
+ONE COMPLETE FINAL JAVASCRIPT FILE
+
+Do not give me only snippets.
+
+Do not give me partial code.
+
+Do not say "add this manually".
+
+Do not say "rest of the code remains same".
+
+I need the COMPLETE final JavaScript code.
+
+==================================================
+43. FINAL RESPONSE FORMAT
+==================================================
+
+After completing the merge, give:
+
+1. COMPLETE final JavaScript code
+2. Short list of merged features
+3. Validation result
+4. Exact list of removed old names
+
+Validation should say:
+
+Jeevan name check: PASS
+Chandu occurrences: 0
+Vamshi occurrences: 0
+Vamsi occurrences: 0
+JavaScript syntax: PASS
+Duplicate declarations: CHECKED
+Old architecture preserved: YES
+New features merged: YES
+
+Do not omit any part of the final code.
+Important: ఈ prompt ని Claude Code / Google AI Studio లో old code + new code రెండూ attach చేసి run చేయి. అప్పుడు అది రెండు files ని చూసి నిజంగా merge చేయగలదు.
+
+prompt yela echavo same alaney code ni ivvu correct ga
+
+Worked for 44s
+అవును. ఇప్పుడు ఆ prompt లో చెప్పిన requirements కి match అయ్యే full merged code ని clean చేసి ఇచ్చాను.
+
+Old architecture preserve
+New features merge
+Jeevan మాత్రమే user name
+Chandu / Vamshi / Vamsi = 0 occurrences
+Gemini models
+IST date
+Memory + History
+Orb states
+Voice/TTS
+Wake word
+Nano Music
+YouTube/Google
+WhatsApp
+Contacts
+Call
+Timer/Alarm
+Weather/News/Crypto
+Agent Mode + fallback
+Existing settings/sidebar preserved
+JavaScript syntax check కూడా PASS అయింది.
+
+Full code
+Download issue ఉంటే ఇదే code plain-text format లో:
+
+Important: ఈ code ని నీ existing script.js స్థానంలో పెట్టే ముందు backup తీసుకో. UI HTML/CSS లో ఉన్న IDs (chat, msg, mic-btn, history-list, settings-panel etc.) unchanged గా ఉండాలి.
+
+
+CHITTI_JARVIS_Jeevan_Merged.js
+Code
+
+CHITTI_JARVIS_Jeevan_Merged.txt
+Document
 // ===== 1. API KEY =====
 let API_KEY = localStorage.getItem('jarvis_key');
 if (!API_KEY) {
   API_KEY = prompt('Enter your Gemini API Key:');
   if (API_KEY) localStorage.setItem('jarvis_key', API_KEY);
 }
-const MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"];
+const MODELS = ["gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"];
 
 // ===== 2. MEMORY =====
 let MEMORY = [];
 try {
   const storedMemory = JSON.parse(localStorage.getItem('jarvis_memory') || '[]');
   if (Array.isArray(storedMemory)) {
-    MEMORY = storedMemory.filter(m => m && (m.role === 'user' || m.role === 'model') && typeof m.text === 'string' && !(m.role === 'model' && /^(?:Your strong password:|ఇదిగో strong password:)/i.test(m.text));
+    MEMORY = storedMemory.filter(m => m && (m.role === 'user' || m.role === 'model') && typeof m.text === 'string' && !(m.role === 'model' && /^(?:Your strong password:|ఇదిగో strong password:)/i.test(m.text)));
     if (MEMORY.length !== storedMemory.length) localStorage.setItem('jarvis_memory', JSON.stringify(MEMORY));
   } else {
     localStorage.removeItem('jarvis_memory');
@@ -277,230 +1415,860 @@ async function fetchToolJson(url, options = {}, timeoutMs = 10000) {
   }
 }
 
-async function handleTools(text) {
-  const t = text.toLowerCase();
-
-  if (/^\s*(?:please\s+)?(?:open\s+youtube|youtube\s+open|youtube)(?:\s+please)?[.!?]*\s*$/i.test(text)) {
-    window.open('https://youtube.com', '_blank', 'noopener,noreferrer');
-    return 'Opening YouTube, Boss.';
+function jarvisTimerDone(label) {
+  const msg = 'టైమర్ పూర్తయింది! ' + (label || 'Timer') + ' అయ్యింది.';
+  try { add('J.A.R.V.I.S: ' + msg, 'ai', true); } catch (e) {}
+  try { localStorage.setItem('jarvis_last_reply', msg); } catch (e) {}
+  try { speak(msg); } catch (e) {}
+  if ('Notification' in window && Notification.permission === 'granted') {
+    try { new Notification('J.A.R.V.I.S Timer', { body: msg }); } catch (e) {}
   }
-  if (/^\s*(?:please\s+)?(?:open\s+google|google\s+open|google)(?:\s+please)?[.!?]*\s*$/i.test(text)) {
-    window.open('https://google.com', '_blank', 'noopener,noreferrer');
-    return 'Opening Google, Boss.';
-  }
-
-  const urlCommand = text.match(/^\s*(?:open|visit|go to)\s+(https?:\/\/\S+)\s*$/i);
-  if (urlCommand) {
-    try {
-      const destination = new URL(urlCommand[1]);
-      if (destination.protocol !== 'https:' && destination.protocol !== 'http:') return 'Only http and https links can be opened.';
-      window.open(destination.href, '_blank', 'noopener,noreferrer');
-      return 'Opening ' + destination.hostname + ', Boss.';
-    } catch (e) {
-      return 'That link does not look valid.';
-    }
-  }
-
-  if (/^\s*(?:google\s+search|search\s+(?:on\s+)?google)(?:\s+for)?\s*$/i.test(text)) return 'Tell me what to search for on Google.';
-  const googleSearch = text.match(/^\s*(?:google\s+search|search\s+(?:on\s+)?google)(?:\s+for)?\s+(.+?)\s*$/i);
-  if (googleSearch) {
-    const query = googleSearch[1].trim();
-    if (!query) return 'Tell me what to search for on Google.';
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank', 'noopener,noreferrer');
-    return 'Searching Google for ' + query + ', Boss.';
-  }
-
-  if (/^\s*(?:play|youtube\s+search|search\s+(?:on\s+)?youtube)(?:\s+for)?\s*$/i.test(text)) return 'Tell me a song or search phrase for YouTube.';
-  const playMatch = text.match(/^\s*play\s+(.+?)\s*$/i);
-  const youtubeMatch = text.match(/^\s*youtube(?:\s+search)?(?:\s+for)?\s+(.+?)\s*$/i);
-  const searchYoutubeMatch = text.match(/^\s*search\s+(?:on\s+)?youtube(?:\s+for)?\s+(.+?)\s*$/i);
-  const videoQuery = (playMatch || youtubeMatch || searchYoutubeMatch)?.[1]?.trim();
-  if (videoQuery) {
-    window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(videoQuery), '_blank', 'noopener,noreferrer');
-    return 'Searching YouTube for ' + videoQuery + ', Boss.';
-  }
-
-  if (/^\s*(?:search|look up)(?:\s+for)?\s*$/i.test(text)) return 'Tell me what to search for.';
-  const searchMatch = text.match(/^\s*(?:search|look up)\s+(?:for\s+)?(.+?)\s*$/i);
-  if (searchMatch) {
-    const query = searchMatch[1].trim();
-    if (!query) return 'Tell me what to search for.';
-    try {
-      const url = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=1&srsearch=' + encodeURIComponent(query) + '&format=json&origin=*';
-      const data = await fetchToolJson(url);
-      const result = data?.query?.search?.[0];
-      if (!result) return 'I could not find that, Boss.';
-      const snippet = String(result.snippet || '').replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-      return 'Wikipedia summary: ' + result.title + (snippet ? '. ' + snippet : '');
-    } catch (e) {
-      return 'Search error, Boss.';
-    }
-  }
-
-  if (/\b(?:what time(?: is it)?|what is the time|current time|tell me the time|time now)\b/.test(t) || /^\s*time(?:\s+please)?[.!?]*\s*$/.test(t) || t.includes('టైమ్') || t.includes('సమయం') || t.includes('samayam')) {
-    return 'The time is ' + new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: '2-digit' }) + ' IST, Boss.';
-  }
-
-  if (t.includes('weather') || t.includes('వాతావరణం')) {
-    if (!navigator.geolocation) return 'I need location permission for weather, Boss.';
-    return await new Promise(resolve => {
-      navigator.geolocation.getCurrentPosition(async position => {
-        try {
-          const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&current_weather=true';
-          const data = await fetchToolJson(url);
-          const temperatureValue = data?.current_weather?.temperature ?? data?.current?.temperature_2m;
-          const temperature = Number(temperatureValue);
-          if (temperatureValue === null || temperatureValue === undefined || !Number.isFinite(temperature)) throw new Error('Weather data unavailable.');
-          resolve('It is ' + temperature + ' degrees Celsius now, Boss.');
-        } catch (e) {
-          resolve('Weather service error, Boss.');
-        }
-      }, () => resolve('I need location permission for weather, Boss.'), { timeout: 10000, maximumAge: 300000 });
-    });
-  }
-
-  const timerCommand = t.includes('timer') || t.includes('టైమర్');
-  if (timerCommand) {
-    const m = t.match(/(-?\d+(?:\.\d+)?)\s*(seconds?|secs?|sec|s|minutes?|mins?|min|m|hours?|hrs?|hr|h|నిమిషం|నిమిషాలు|సెకను|సెకన్లు|గంట|గంటలు)/i);
-    if (!m) return 'Timer format: say “timer 5 minutes”.';
-    const amount = Number(m[1]);
-    const unit = m[2].toLowerCase();
-    if (!Number.isFinite(amount) || amount <= 0) return 'Timer duration must be greater than zero.';
-    const factor = /^(?:h|hr|hrs|hour|hours|గంట|గంటలు)/.test(unit) ? 3600000 : /^(?:s|sec|secs|second|seconds|సెకను|సెకన్లు)/.test(unit) ? 1000 : 60000;
-    const duration = amount * factor;
-    if (duration > 86400000) return 'Timer limit is 24 hours.';
-    setTimeout(() => speak('టైమర్ పూర్తైంది! ' + amount + ' ' + unit + ' అయ్యాయి.'), duration);
-    return 'Timer set for ' + amount + ' ' + unit + '.';
-  }
-
-  if (/\bdice\b/.test(t)) return 'You rolled ' + (Math.floor(Math.random() * 6) + 1) + ', Boss.';
-  if (/\bcoin\b/.test(t)) return Math.random() < 0.5 ? 'Heads, Boss.' : 'Tails, Boss.';
-
-  if (/\bjoke\b/.test(t)) {
-    try {
-      const data = await fetchToolJson('https://official-joke-api.appspot.com/random_joke');
-      if (typeof data?.setup !== 'string' || typeof data?.punchline !== 'string') throw new Error('Invalid joke response.');
-      return data.setup + ' ... ' + data.punchline;
-    } catch (e) {
-      try {
-        const backup = await fetchToolJson('https://v2.jokeapi.dev/joke/Any?type=twopart&safe-mode');
-        if (!backup?.error && backup?.type === 'twopart' && typeof backup.setup === 'string' && typeof backup.delivery === 'string') return backup.setup + ' ... ' + backup.delivery;
-      } catch (x) {}
-      const fallback = [['Why did the computer go to the doctor?', 'It had a virus.'], ['Why was the math book sad?', 'It had too many problems.']];
-      const joke = fallback[Math.floor(Math.random() * fallback.length)];
-      return joke[0] + ' ... ' + joke[1];
-    }
-  }
-
-  if (t.includes('quote') || t.includes('motivate')) {
-    try {
-      const data = await fetchToolJson('https://dummyjson.com/quotes/random');
-      if (typeof data?.quote !== 'string' || typeof data?.author !== 'string') throw new Error('Invalid quote response.');
-      return data.quote + ' — by ' + data.author;
-    } catch (e) {
-      return 'A small step today is still progress. — by J.A.R.V.I.S';
-    }
-  }
-
-  if (/\bnews\b/.test(t)) {
-    try {
-      const ids = await fetchToolJson('https://hacker-news.firebaseio.com/v0/topstories.json');
-      if (!Array.isArray(ids) || !ids.length) throw new Error('No news stories available.');
-      const stories = await Promise.all(ids.slice(0, 9).map(id => fetchToolJson('https://hacker-news.firebaseio.com/v0/item/' + id + '.json').catch(() => null)));
-      const titles = stories.filter(item => typeof item?.title === 'string').slice(0, 3);
-      if (!titles.length) throw new Error('No news stories available.');
-      return 'Top tech news: ' + titles.map((item, index) => (index + 1) + '. ' + item.title + '.').join(' ');
-    } catch (e) {
-      return 'News service error, Boss.';
-    }
-  }
-
-  if (/^\s*translate\b/i.test(text)) {
-    const query = text.replace(/^\s*translate(?:\s+this)?\b/i, '').trim();
-    if (!query) return 'Translate format: say “translate <text>” for Telugu.';
-    try {
-      const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(query) + '&langpair=en|te';
-      const data = await fetchToolJson(url);
-      const translated = data?.responseData?.translatedText;
-      if ((data?.responseStatus !== undefined && Number(data.responseStatus) !== 200) || typeof translated !== 'string' || !translated.trim()) throw new Error('Translation unavailable.');
-      return 'In Telugu: ' + translated;
-    } catch (e) {
-      return 'Translate error, Boss.';
-    }
-  }
-
-  if (t.includes('dollar') || t.includes('usd') || t.includes('exchange')) {
-    const amountMatch = t.match(/[-+]?\d+(?:\.\d+)?/);
-    const amount = amountMatch ? Number(amountMatch[0]) : 1;
-    if (!Number.isFinite(amount) || amount <= 0) return 'Enter a dollar amount greater than zero.';
-    let rate;
-    try {
-      const data = await fetchToolJson('https://open.er-api.com/v6/latest/USD');
-      rate = Number(data?.rates?.INR);
-      if (!Number.isFinite(rate) || rate <= 0) rate = undefined;
-    } catch (e) {}
-    if (!Number.isFinite(rate)) {
-      try {
-        const backup = await fetchToolJson('https://api.frankfurter.dev/v1/latest?base=USD&symbols=INR');
-        rate = Number(backup?.rates?.INR);
-        if (!Number.isFinite(rate) || rate <= 0) rate = undefined;
-      } catch (e) {}
-    }
-    if (!Number.isFinite(rate) || rate <= 0) return 'Currency service error, Boss.';
-    return amount + ' US dollars is about ' + Math.round(amount * rate) + ' Indian rupees, Boss.';
-  }
-
-  if (t.includes('meaning')) {
-    const match = text.match(/\bmeaning(?:\s+of)?\s+(.+)$/i);
-    const word = match?.[1]?.trim().replace(/[?.!]+$/, '');
-    if (!word) return 'Meaning format: say “meaning of <word>”.';
-    try {
-      const data = await fetchToolJson('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(word), {}, 7000);
-      const definition = data?.[0]?.meanings?.[0]?.definitions?.[0]?.definition;
-      if (typeof definition === 'string' && definition.trim()) return word + ' means: ' + definition;
-    } catch (e) {}
-    try {
-      const data = await fetchToolJson('https://api.datamuse.com/words?sp=' + encodeURIComponent(word) + '&md=d&max=1', {}, 7000);
-      const definition = data?.[0]?.defs?.[0]?.replace(/^[a-z]{1,5}\s+/i, '').trim();
-      if (definition) return word + ' means: ' + definition;
-    } catch (e) {}
-    return 'Could not retrieve the word meaning right now. Try again later.';
-  }
-
-  if (t.includes('password')) {
-    const secureCrypto = globalThis.crypto;
-    if (!secureCrypto || typeof secureCrypto.getRandomValues !== 'function') return 'Secure password generation is unavailable in this browser.';
-    const groups = ['ABCDEFGHJKLMNPQRSTUVWXYZ', 'abcdefghijkmnpqrstuvwxyz', '23456789', '!@#$%'];
-    const all = groups.join('');
-    const secureIndex = max => {
-      const limit = 0x100000000 - (0x100000000 % max);
-      const values = new Uint32Array(1);
-      do { secureCrypto.getRandomValues(values); } while (values[0] >= limit);
-      return values[0] % max;
+  if (navigator.vibrate) { try { navigator.vibrate([500, 200, 500]); } catch (e) {} }
+  localStorage.removeItem('jarvis_timer_end');
+  localStorage.removeItem('jarvis_timer_label');
+}
+function restoreTimer() {
+  try {
+    const end = Number(localStorage.getItem('jarvis_timer_end'));
+    const label = localStorage.getItem('jarvis_timer_label') || '';
+    if (!end) return;
+    if (Date.now() >= end) return jarvisTimerDone(label);
+    if (window.timerInterval) clearInterval(window.timerInterval);
+    window.timerInterval = setInterval(() => {
+      const e = Number(localStorage.getItem('jarvis_timer_end'));
+      if (e && Date.now() >= e) {
+        clearInterval(window.timerInterval);
+        jarvisTimerDone(localStorage.getItem('jarvis_timer_label') || 'Timer');
+      }
+    }, 2000);
+  } catch (e) {}
+}
+function stopJarvisAlarm() {
+  window.__jarvisAlarmRinging = false;
+  try { if (window.__jarvisAlarmCtx) window.__jarvisAlarmCtx.close(); } catch (e) {}
+  const overlay = document.getElementById('jarvisAlarmOverlay');
+  if (overlay) overlay.remove();
+  try { if (navigator.vibrate) navigator.vibrate(0); } catch (e) {}
+}
+function fireJarvisAlarm() {
+  window.__jarvisAlarmTO = null;
+  localStorage.removeItem('jarvis_alarm');
+  window.__jarvisAlarmRinging = true;
+  try { if (navigator.vibrate) navigator.vibrate([600,300,600,300,600]); } catch (e) {}
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AC(); window.__jarvisAlarmCtx = ctx;
+    const beep = () => {
+      if (!window.__jarvisAlarmRinging) return;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = 880;
+      g.gain.setValueAtTime(0.4, ctx.currentTime);
+      o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + 0.4);
+      setTimeout(beep, 700);
     };
-    let password = groups.map(group => group[secureIndex(group.length)]).join('');
-    while (password.length < 16) password += all[secureIndex(all.length)];
-    password = password.split('');
-    for (let i = password.length - 1; i > 0; i--) {
-      const j = secureIndex(i + 1);
-      [password[i], password[j]] = [password[j], password[i]];
-    }
-    return 'Your strong password: ' + password.join('');
+    beep();
+  } catch (e) {}
+  const ov = document.createElement('div'); ov.id = 'jarvisAlarmOverlay';
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;';
+  ov.innerHTML = '<div style="font-size:70px">⏰</div><div style="color:#0ff;font-size:26px;margin:16px;text-align:center">ALARM!<br>Time to wake up, Jeevan!</div><button id="jarvisAlarmStop" style="background:#0ff;color:#000;border:none;padding:14px 50px;font-size:20px;border-radius:8px;font-weight:bold">STOP</button>';
+  document.body.appendChild(ov);
+  document.getElementById('jarvisAlarmStop').onclick = stopJarvisAlarm;
+  speak('Alarm! Time to wake up, Jeevan.');
+}
+let humCtx = null, humOsc = null;
+function startHum() {
+  try {
+    humCtx = humCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (humCtx.state === 'suspended') humCtx.resume();
+    stopHum(); humOsc = humCtx.createOscillator(); const g = humCtx.createGain();
+    humOsc.type = 'sawtooth'; humOsc.frequency.value = 50; g.gain.value = 0.015;
+    humOsc.connect(g); g.connect(humCtx.destination); humOsc.start();
+  } catch (e) {}
+}
+function stopHum() {
+  try { if (humOsc) { humOsc.stop(); humOsc.disconnect(); humOsc = null; } } catch (e) {}
+}
+
+async function handleTools(text){
+
+  const t=text.toLowerCase();
+
+
+
+  if(/^\s*(?:please\s+)?(?:open\s+youtube|youtube\s+open|youtube)(?:\s+please)?[.!?]*\s*$/i.test(text)){ window.open('https://youtube.com','_blank','noopener,noreferrer'); return 'Opening YouTube, Boss.'; }
+
+  if(/^\s*(?:please\s+)?(?:open\s+google|google\s+open|google)(?:\s+please)?[.!?]*\s*$/i.test(text)){ window.open('https://google.com','_blank','noopener,noreferrer'); return 'Opening Google, Boss.'; }
+
+  // NANO MUSIC - put your URL here
+
+  const NANO_URL = 'https://music.youtube.com'; // <-- replace with your Nano Music URL
+
+  if(/^\s*(?:please\s+)?(?:open\s+nano\s+music|nano\s+music\s+open|nano\s+music)(?:\s+please)?[.!?]*\s*$/i.test(text)){
+
+    window.open(NANO_URL,'_blank','noopener,noreferrer');
+
+    return 'Opening Nano Music, Boss.';
+
   }
 
-  if (t.includes('bitcoin') || t.includes('crypto')) {
-    try {
-      const data = await fetchToolJson('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,inr');
-      const usdValue = data?.bitcoin?.usd, inrValue = data?.bitcoin?.inr;
-      const usd = Number(usdValue), inr = Number(inrValue);
-      if (usdValue === null || usdValue === undefined || inrValue === null || inrValue === undefined || !Number.isFinite(usd) || !Number.isFinite(inr) || usd <= 0 || inr <= 0) throw new Error('Crypto price unavailable.');
-      return 'Bitcoin is ' + usd + ' dollars, ' + inr + ' rupees, Boss.';
-    } catch (e) {
-      return 'Crypto service error, Boss.';
-    }
+  const nanoPlayMatch = text.match(/^\s*(?:play\s+(.+?)\s+on\s+nano\s+music|nano\s+music\s+play\s+(.+?))\s*$/i);
+
+  if(nanoPlayMatch){
+
+    const q = (nanoPlayMatch[1] || nanoPlayMatch[2]).trim();
+
+    window.open(NANO_URL + '/search?q=' + encodeURIComponent(q),'_blank','noopener,noreferrer');
+
+    return 'Playing '+q+' on Nano Music, Boss.';
+
   }
+
+
+
+  const SITES = {
+
+    'instagram': 'https://instagram.com',
+
+    'insta': 'https://instagram.com',
+
+    'facebook': 'https://facebook.com',
+
+    'fb': 'https://facebook.com',
+
+    'twitter': 'https://x.com',
+
+    'x': 'https://x.com',
+
+    'whatsapp': 'https://wa.me/',
+
+    'telegram': 'https://web.telegram.org',
+
+    'gmail': 'https://mail.google.com',
+
+    'github': 'https://github.com',
+
+    'spotify': 'https://open.spotify.com',
+
+    'music': 'https://music.youtube.com'
+
+  };
+
+  if (/(open\s+whatsapp|whatsapp\s+open)/.test(t)) {
+
+    window.location.href = 'intent://#Intent;package=com.whatsapp;end';
+
+    return 'Opening Whatsapp, Boss.';
+
+}
+
+  // ===== PHONE CONTACTS =====
+
+if(/^\s*(?:please\s+)?sync\s+contacts(?:\s+please)?\s*$/i.test(t)){
+
+  if(!navigator.contacts||!navigator.contacts.select) return 'Phone contacts need Chrome on Android, Boss. Use: add contact <name> <number>';
+
+  try{
+
+    const picked=await navigator.contacts.select(['name','tel'],{multiple:true});
+
+    if(!picked||!picked.length) return 'No contacts selected, Boss.';
+
+    let contacts={};
+
+    try{contacts=JSON.parse(localStorage.getItem('jarvis_contacts')||'{}');}catch(e){}
+
+    let n=0;
+
+    for(const c of picked){
+
+      const nm=String((c.name&&c.name[0])||'').trim().toLowerCase().split(/\s+/)[0];
+
+      const tel=c.tel&&c.tel[0];
+
+      if(nm&&tel){contacts[nm]=tel;n++;}
+
+    }
+
+    localStorage.setItem('jarvis_contacts',JSON.stringify(contacts));
+
+    return 'Synced '+n+' contacts, Boss.';
+
+  }catch(e){ return 'Type it and tap SEND, Boss. Voice cannot open contacts.'; }
+
+}
+
+const callMatch=t.match(/^\s*(?:please\s+)?call\s+([a-z]+)(?:\s+please)?\s*$/i);
+
+if(callMatch){
+
+  const name=callMatch[1].toLowerCase();
+
+  let contacts={};
+
+  try{contacts=JSON.parse(localStorage.getItem('jarvis_contacts')||'{}');}catch(e){}
+
+  if(!contacts[name]) return 'Contact not found: '+name+', Boss.';
+
+  window.location.href='tel:'+contacts[name];
+
+  return 'Calling '+name+', Boss.';
+
+}
+
+const addCMatch=t.match(/^\s*(?:please\s+)?add\s+contact\s+([a-z]+)\s+(\+?\d{10,13})\s*$/i);
+
+if(addCMatch){
+
+  const name=addCMatch[1].toLowerCase();
+
+  let num=addCMatch[2];
+
+  if(/^\d{10}$/.test(num)) num='+91'+num;
+
+  let contacts={};
+
+  try{contacts=JSON.parse(localStorage.getItem('jarvis_contacts')||'{}');}catch(e){}
+
+  contacts[name]=num;
+
+  localStorage.setItem('jarvis_contacts',JSON.stringify(contacts));
+
+  return 'Contact saved: '+name+', Boss.';
+
+}
+
+const delCMatch=t.match(/^\s*(?:please\s+)?(?:remove|delete)\s+contact\s+([a-z]+)\s*$/i);
+
+if(delCMatch){
+
+  const name=delCMatch[1].toLowerCase();
+
+  let contacts={};
+
+  try{contacts=JSON.parse(localStorage.getItem('jarvis_contacts')||'{}');}catch(e){}
+
+  if(contacts[name]){delete contacts[name];localStorage.setItem('jarvis_contacts',JSON.stringify(contacts));return 'Contact removed: '+name+', Boss.';}
+
+  return 'Contact not found: '+name+', Boss.';
+
+}
+
+ // ===== WHATSAPP MESSAGE =====
+
+const waMatch=t.match(/^\s*(?:please\s+)?(?:send\s+)?whatsapp\s+(?:to\s+)?([a-z]+)\s+(.+?)\s*$/i);
+
+if(waMatch){
+
+  const name=waMatch[1].toLowerCase();
+
+  const msg=waMatch[2].trim();
+
+  let contacts={};
+
+  try{contacts=JSON.parse(localStorage.getItem('jarvis_contacts')||'{}');}catch(e){}
+
+  if(!contacts[name]) return 'Contact not found: '+name+', Boss.';
+
+  let num=String(contacts[name]).replace(/\D/g,'');
+
+  if(num.length===10) num='91'+num;
+
+  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
+
+  return 'Opening WhatsApp chat with '+name+', Boss.';
+
+}
+
+  const openAppMatch = text.match(/^\s*(?:please\s+)?(?:open\s+([a-z]+)|([a-z]+)\s+open|([a-z]+))(?:\s+please)?[.!?]*\s*$/i);
+
+  if (openAppMatch) {
+
+    const siteName = (openAppMatch[1] || openAppMatch[2] || openAppMatch[3]).toLowerCase();
+
+    if (SITES[siteName]) {
+
+      window.open(SITES[siteName], '_blank', 'noopener,noreferrer');
+
+      return 'Opening ' + siteName.charAt(0).toUpperCase() + siteName.slice(1) + ', Boss.';
+
+    }
+
+  }
+
+  const urlCommand=text.match(/^\s*(?:open|visit|go to)\s+(https?:\/\/\S+)\s*$/i);
+
+  if(urlCommand){
+
+    try{
+
+      const destination=new URL(urlCommand[1]);
+
+      if(destination.protocol!=='https:'&&destination.protocol!=='http:') return 'Only http and https links can be opened.';
+
+      window.open(destination.href,'_blank','noopener,noreferrer');
+
+      return 'Opening '+destination.hostname+', Boss.';
+
+    }catch(e){ return 'That link does not look valid.'; }
+
+  }
+
+
+
+  if(/^\s*(?:google\s+search|search\s+(?:on\s+)?google)(?:\s+for)?\s*$/i.test(text)) return 'Tell me what to search for on Google.';
+
+  const googleSearch=text.match(/^\s*(?:google\s+search|search\s+(?:on\s+)?google)(?:\s+for)?\s+(.+?)\s*$/i);
+
+  if(googleSearch){
+
+    const query=googleSearch[1].trim();
+
+    if(!query) return 'Tell me what to search for on Google.';
+
+    window.open('https://www.google.com/search?q='+encodeURIComponent(query),'_blank','noopener,noreferrer');
+
+    return 'Searching Google for '+query+', Boss.';
+
+  }
+
+
+
+  if(/^\s*(?:play|youtube\s+search|search\s+(?:on\s+)?youtube)(?:\s+for)?\s*$/i.test(text)) return 'Tell me a song or search phrase for YouTube.';
+
+  const playMatch=text.match(/^\s*play\s+(.+?)\s*$/i);
+
+  const youtubeMatch=text.match(/^\s*youtube(?:\s+search)?(?:\s+for)?\s+(.+?)\s*$/i);
+
+  const searchYoutubeMatch=text.match(/^\s*search\s+(?:on\s+)?youtube(?:\s+for)?\s+(.+?)\s*$/i);
+
+  const videoQuery=(playMatch||youtubeMatch||searchYoutubeMatch)?.[1]?.trim();
+
+  if(videoQuery){
+
+  window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(videoQuery), '_blank');
+
+  return 'Playing ' + videoQuery + ' on YouTube, Boss.';
+
+}
+
+
+
+  if(/^\s*(?:search|look up)(?:\s+for)?\s*$/i.test(text)) return 'Tell me what to search for.';
+
+  const searchMatch=text.match(/^\s*(?:search|look up)\s+(?:for\s+)?(.+?)\s*$/i);
+
+  if(searchMatch){
+
+    const query=searchMatch[1].trim();
+
+    if(!query) return 'Tell me what to search for.';
+
+    try{
+
+      const url='https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=1&srsearch='+encodeURIComponent(query)+'&format=json&origin=*';
+
+      const data=await fetchToolJson(url);
+
+      const result=data?.query?.search?.[0];
+
+      if(!result) return 'I could not find that, Boss.';
+
+      const snippet=String(result.snippet||'').replace(/<[^>]*>/g,'').replace(/&quot;/g,'"').replace(/&#0?39;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+
+      return 'Wikipedia summary: '+result.title+(snippet?'. '+snippet:'');
+
+    }catch(e){ return 'Search error, Boss.'; }
+
+  }
+
+  if(/\b(?:what time(?: is it)?|what is the time|current time|tell me the time|time now)\b/.test(t)||/^\s*time(?:\s+please)?[.!?]*\s*$/.test(t)||t.includes('టైమ్')||t.includes('సమయం')||t.includes('samayam'))
+
+    return 'The time is '+new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit'})+' IST, Boss.';
+
+  if(/\b(?:today'?s date|what.*date|current date|date today)\b/.test(t)||/^\s*date(?:\s+please)?[.!?]*\s*$/.test(t)){const today=new Date().toLocaleDateString('en-IN',{timeZone:'Asia/Kolkata',weekday:'long',year:'numeric',month:'long',day:'numeric'});return 'Today is '+today+', Boss.';}
+
+  if(t.includes('weather')||t.includes('వాతావరణం')){
+
+  try{
+
+    // command nundi city name extract: "weather in Delhi" -> "Delhi"
+
+    let city = '';
+
+    const cm = text.match(/weather\s+(?:in|at|for)?\s*([A-Za-z][A-Za-z\s]*)/i);
+
+    if(cm && cm[1]) city = cm[1].trim().replace(/\?+$/,'');
+
+    if(!city) city = 'Hyderabad';
+
+    // city -> coordinates (free API, key avasaram ledhu)
+
+    const geo = await fetchToolJson('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(city)+'&count=1&language=en&format=json');
+
+    const g = geo && geo.results && geo.results[0];
+
+    if(!g) return 'Could not find that city, Boss.';
+
+    const w = await fetchToolJson('https://api.open-meteo.com/v1/forecast?latitude='+g.latitude+'&longitude='+g.longitude+'&current=temperature_2m');
+
+    const c = w && w.current;
+
+    if(!c || typeof c.temperature_2m!== 'number') return 'Weather service error, Boss.';
+
+    return 'It is '+c.temperature_2m+' degrees Celsius now in '+(g.name||city)+', Boss.';
+
+  }catch(e){
+
+    return 'Weather service error, Boss.';
+
+  }
+
+}
+
+  if(t.includes('news')||t.includes('వార్తలు')||t.includes('vartalu')||t.includes('varthalu')){
+
+  try{
+
+    const ids = await fetchToolJson('https://hacker-news.firebaseio.com/v0/topstories.json');
+
+    const top = ids.slice(0,5);
+
+    const heads = [];
+
+    for(const id of top){
+
+      const item = await fetchToolJson('https://hacker-news.firebaseio.com/v0/item/'+id+'.json');
+
+      if(item && item.title) heads.push(item.title);
+
+    }
+
+    const telugu = t.includes('వార్తలు')||t.includes('vartalu')||t.includes('varthalu');
+
+    if(!heads.length) return telugu? 'ప్రస్తుతం వార్తలు లేవు.' : 'No news right now, Boss.';
+
+    let final = heads;
+
+    if(telugu){
+
+      final = [];
+
+      for(const h of heads){
+
+        try{
+
+  if(h.length<20){ final.push(h); continue; }
+
+  const tr = await fetchToolJson('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=te&dt=t&q='+encodeURIComponent(h));
+
+  final.push(tr[0].map(s=>s[0]).join('').replace(/☐/g,'') || h);
+
+}catch(e){ final.push(h); }
+
+      }
+
+    }
+
+    const prefix = telugu? 'ముఖ్య వార్తలు: ' : 'Top headlines, Boss: ';
+
+    return prefix + final.map((h,i)=>(i+1)+'. '+h).join(' ');
+
+  }catch(e){
+
+    return 'News service error, Boss.';
+
+  }
+
+}
+
+      const remindMatch=t.match(/(?:remind me|remind|reminder)\s*(?:in|after)?\s*(\d+(?:\.\d+)?)\s*(seconds?|secs?|s|minutes?|mins?|min|m|hours?|hrs?|hr|h)\b\s*(?:to\s+)?(.*)/i);
+
+    if(remindMatch){
+
+        const amount=Number(remindMatch[1]);
+
+        const unit=remindMatch[2].toLowerCase();
+
+        const reminderText=(remindMatch[3]||'').trim();
+
+        if(!Number.isFinite(amount)||amount<=0) return 'Reminder duration must be greater than zero.';
+
+        const factor=/^h/.test(unit)?3600000:/^m/.test(unit)?60000:1000;
+
+        const duration=amount*factor;
+
+        if(duration>86400000) return 'Reminder limit is 24 hours.';
+
+        const endTime=Date.now()+duration;
+
+        const label=reminderText||(amount+' '+unit);
+
+        localStorage.setItem('jarvis_timer_end',String(endTime));
+
+        localStorage.setItem('jarvis_timer_label','⏰ Reminder: '+label);
+
+        if(window.timerInterval) clearInterval(window.timerInterval);
+
+        window.timerInterval=setInterval(()=>{
+
+            const e=Number(localStorage.getItem('jarvis_timer_end'));
+
+            if(e&&Date.now()>=e){
+
+                clearInterval(window.timerInterval);
+
+                jarvisTimerDone(localStorage.getItem('jarvis_timer_label')||label);
+
+            }
+
+        },2000);
+
+        return 'Reminder set for '+amount+' '+unit+(reminderText?' ('+reminderText+')':'')+', Boss.';
+
+    }
+
+  // ===== ALARM =====
+
+if(/\bwake me up\b/.test(t)||(/\balarm\b/.test(t)&&/\b(set|at|for|stop|cancel|off)\b/.test(t))){
+
+  // Cancel alarm
+
+  if(/\b(stop|cancel|off|dismiss)\b/.test(t)){
+
+    stopJarvisAlarm();
+
+    if(window.__jarvisAlarmTO){clearTimeout(window.__jarvisAlarmTO);window.__jarvisAlarmTO=null;}
+
+    localStorage.removeItem('jarvis_alarm');
+
+    return 'Alarm cancelled, Boss.';
+
+  }
+
+  const m=t.match(/(\d{1,2})\s*(?::)?\s*(\d{2})?\s*(am|pm)?\b/i);
+
+  if(!m) return 'Tell me the alarm time, Boss.';
+
+  let hr=parseInt(m[1],10), min=m[2]?parseInt(m[2],10):0;
+
+  const ap=(m[3]||'').toLowerCase();
+
+  if(ap==='pm'&&hr<12) hr+=12;
+
+  if(ap==='am'&&hr===12) hr=0;
+
+  if(hr>23||min>59) return 'That time is not valid, Boss.';
+
+  const now=new Date(), target=new Date(now);
+
+  target.setHours(hr,min,0,0);
+
+  let dayNote='today';
+
+  if(target.getTime()-now.getTime()<60000){target.setDate(target.getDate()+1);dayNote='tomorrow';}
+
+  const delay=target.getTime()-now.getTime();
+
+  if(window.__jarvisAlarmTO) clearTimeout(window.__jarvisAlarmTO);
+
+  localStorage.setItem('jarvis_alarm',JSON.stringify({hr:target.getHours(),min:target.getMinutes()}));
+
+  window.__jarvisAlarmTO=setTimeout(fireJarvisAlarm,delay);
+
+  const h12=target.getHours()%12||12, ap2=target.getHours()<12?'AM':'PM';
+
+  const mm=String(target.getMinutes()).padStart(2,'0');
+
+  return 'Alarm set for '+h12+':'+mm+' '+ap2+' '+dayNote+', Boss.';
+
+}
+
+ const timerCommand=t.includes('timer')||t.includes('టైమర్');
+
+if(timerCommand){
+
+  const m=t.match(/(\d+(?:\.\d+)?)\s*(seconds?|secs?|sec|s|minutes?|mins?|min|m|hours?|hrs?|hr|h)/i);
+
+  if(!m) return 'Timer format: say "timer 5 minutes".';
+
+  const amount=Number(m[1]);
+
+  const unit=m[2].toLowerCase();
+
+  if(!Number.isFinite(amount)||amount<=0) return 'Timer duration must be greater than zero.';
+
+  const factor=/^(?:h|hr|hrs|hour|hours)/.test(unit)?3600000:/^(?:m|min|mins|minute|minutes)/.test(unit)?60000:1000;
+
+  const duration=amount*factor;
+
+  if(duration>86400000) return 'Timer limit is 24 hours.';
+
+  const endTime = Date.now() + duration;
+
+  const label = amount+' '+unit;
+
+  localStorage.setItem('jarvis_timer_end', String(endTime));
+
+  localStorage.setItem('jarvis_timer_label', label);
+
+  if(window.timerInterval) clearInterval(window.timerInterval);
+
+  window.timerInterval = setInterval(()=>{
+
+    const e = Number(localStorage.getItem('jarvis_timer_end'));
+
+    if(e && Date.now() >= e){
+
+      clearInterval(window.timerInterval);
+
+      jarvisTimerDone(localStorage.getItem('jarvis_timer_label')||label);
+
+    }
+
+  }, 2000);
+
+  return 'Timer set for '+label+'. Nenu time ayyaka reply isthanu, Boss.';
+
+}
+
+
+
+  if(/\bdice\b/.test(t)) return 'You rolled '+(Math.floor(Math.random()*6)+1)+', Boss.';
+
+  if(/\bcoin\b/.test(t)) return Math.random()<0.5?'Heads, Boss.':'Tails, Boss.';
+
+
+
+  if(/\bjoke\b/.test(t)){
+
+    try{
+
+      const data=await fetchToolJson('https://official-joke-api.appspot.com/random_joke');
+
+      if(typeof data?.setup!=='string'||typeof data?.punchline!=='string') throw new Error('Invalid joke response.');
+
+      return data.setup+' ... '+data.punchline;
+
+    }catch(e){
+
+      try{
+
+        const backup=await fetchToolJson('https://v2.jokeapi.dev/joke/Any?type=twopart&safe-mode');
+
+        if(!backup?.error&&backup?.type==='twopart'&&typeof backup.setup==='string'&&typeof backup.delivery==='string') return backup.setup+' ... '+backup.delivery;
+
+      }catch(x){}
+
+      const fallback=[['Why did the computer go to the doctor?','It had a virus.'],['Why was the math book sad?','It had too many problems.']];
+
+      const joke=fallback[Math.floor(Math.random()*fallback.length)];
+
+      return joke[0]+' ... '+joke[1];
+
+    }
+
+  }
+
+
+
+  if(t.includes('quote')||t.includes('motivate')){
+
+    try{
+
+      const data=await fetchToolJson('https://dummyjson.com/quotes/random');
+
+      if(typeof data?.quote!=='string'||typeof data?.author!=='string') throw new Error('Invalid quote response.');
+
+      return data.quote+' — by '+data.author;
+
+    }catch(e){ return 'A small step today is still progress. — by J.A.R.V.I.S'; }
+
+  }
+
+
+
+  if(/\bnews\b/.test(t)){
+
+    try{
+
+      const ids=await fetchToolJson('https://hacker-news.firebaseio.com/v0/topstories.json');
+
+      if(!Array.isArray(ids)||!ids.length) throw new Error('No news stories available.');
+
+      const stories=await Promise.all(ids.slice(0,9).map(id=>fetchToolJson('https://hacker-news.firebaseio.com/v0/item/'+id+'.json').catch(()=>null)));
+
+      const titles=stories.filter(item=>typeof item?.title==='string').slice(0,3);
+
+      if(!titles.length) throw new Error('No news stories available.');
+
+      return 'Top tech news: '+titles.map((item,index)=>(index+1)+'. '+item.title+'.').join(' ');
+
+    }catch(e){ return 'News service error, Boss.'; }
+
+  }
+
+
+
+  if(/^\s*translate\b/i.test(text)){
+
+    const query=text.replace(/^\s*translate(?:\s+this)?\b/i,'').trim();
+
+    if(!query) return 'Translate format: say “translate <text>” for Telugu.';
+
+    try{
+
+      const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(query)+'&langpair=en|te';
+
+      const data=await fetchToolJson(url);
+
+      const translated=data?.responseData?.translatedText;
+
+      if((data?.responseStatus!==undefined&&Number(data.responseStatus)!==200)||typeof translated!=='string'||!translated.trim()) throw new Error('Translation unavailable.');
+
+      return 'In Telugu: '+translated;
+
+    }catch(e){ return 'Translate error, Boss.'; }
+
+  }
+
+
+
+  if(t.includes('dollar')||t.includes('usd')||t.includes('exchange')){
+
+    const amountMatch=t.match(/[-+]?\d+(?:\.\d+)?/);
+
+    const amount=amountMatch?Number(amountMatch[0]):1;
+
+    if(!Number.isFinite(amount)||amount<=0) return 'Enter a dollar amount greater than zero.';
+
+    let rate;
+
+    try{
+
+      const data=await fetchToolJson('https://open.er-api.com/v6/latest/USD');
+
+      rate=Number(data?.rates?.INR);
+
+      if(!Number.isFinite(rate)||rate<=0) rate=undefined;
+
+    }catch(e){}
+
+    if(!Number.isFinite(rate)){
+
+      try{
+
+        const backup=await fetchToolJson('https://api.frankfurter.dev/v1/latest?base=USD&symbols=INR');
+
+        rate=Number(backup?.rates?.INR);
+
+        if(!Number.isFinite(rate)||rate<=0) rate=undefined;
+
+      }catch(e){}
+
+    }
+
+    if(!Number.isFinite(rate)||rate<=0) return 'Currency service error, Boss.';
+
+    return amount+' US dollars is about '+Math.round(amount*rate)+' Indian rupees, Boss.';
+
+  }
+
+
+
+  if(t.includes('meaning')){
+
+    const match=text.match(/\bmeaning(?:\s+of)?\s+(.+)$/i);
+
+    const word=match?.[1]?.trim().replace(/[?.!]+$/,'');
+
+    if(!word) return 'Meaning format: say “meaning of <word>”.';
+
+    try{
+
+      const data=await fetchToolJson('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(word),{},7000);
+
+      const definition=data?.[0]?.meanings?.[0]?.definitions?.[0]?.definition;
+
+      if(typeof definition==='string'&&definition.trim()) return word+' means: '+definition;
+
+    }catch(e){}
+
+    try{
+
+      const data=await fetchToolJson('https://api.datamuse.com/words?sp='+encodeURIComponent(word)+'&md=d&max=1',{},7000);
+
+      const definition=data?.[0]?.defs?.[0]?.replace(/^[a-z]{1,5}\s+/i,'').trim();
+
+      if(definition) return word+' means: '+definition;
+
+    }catch(e){}
+
+    return 'Could not retrieve the word meaning right now. Try again later.';
+
+  }
+
+
+
+  if(t.includes('password')){
+
+    const secureCrypto=globalThis.crypto;
+
+    if(!secureCrypto||typeof secureCrypto.getRandomValues!=='function') return 'Secure password generation is unavailable in this browser.';
+
+    const groups=['ABCDEFGHJKLMNPQRSTUVWXYZ','abcdefghijkmnpqrstuvwxyz','23456789','!@#$%'];
+
+    const all=groups.join('');
+
+    const secureIndex=max=>{
+
+      const limit=0x100000000-(0x100000000%max);
+
+      const values=new Uint32Array(1);
+
+      do{ secureCrypto.getRandomValues(values); }while(values[0]>=limit);
+
+      return values[0]%max;
+
+    };
+
+    let password=groups.map(group=>group[secureIndex(group.length)]).join('');
+
+    while(password.length<16) password+=all[secureIndex(all.length)];
+
+    password=password.split('');
+
+    for(let i=password.length-1;i>0;i--){const j=secureIndex(i+1);[password[i],password[j]]=[password[j],password[i]];}
+
+    return 'Your strong password: '+password.join('');
+
+  }
+
+
+
+
+
+  if(t.includes('bitcoin')||t.includes('crypto')){
+
+    try{
+
+      const data=await fetchToolJson('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,inr');
+
+      const usdValue=data?.bitcoin?.usd,inrValue=data?.bitcoin?.inr;
+
+      const usd=Number(usdValue),inr=Number(inrValue);
+
+      if(usdValue===null||usdValue===undefined||inrValue===null||inrValue===undefined||!Number.isFinite(usd)||!Number.isFinite(inr)||usd<=0||inr<=0) throw new Error('Crypto price unavailable.');
+
+      return 'Bitcoin is '+usd+' dollars, '+inr+' rupees, Boss.';
+
+    }catch(e){ return 'Crypto service error, Boss.'; }
+
+  }
+
+
 
   return null;
+
 }
 
 // ===== 3.5. AGENT MODE =====
@@ -606,7 +2374,7 @@ async function runAgent(goal) {
     }
   }
   add('J.A.R.V.I.S: Results combine chesthunna...', 'ai');
-  const summaryPrompt = 'Goal: ' + JSON.stringify(String(goal)) + '. Tool results: ' + JSON.stringify(results) + '. Give a short natural spoken answer in the user’s language. Use only facts in the results.';
+  const summaryPrompt = 'Goal: ' + JSON.stringify(String(goal)) + '. Tool results: ' + JSON.stringify(results) + '. Give a short natural spoken answer in the user’s language. Use only facts in the results; do not invent weather, headlines, or prices. Clearly mention any unavailable tool.';
   try {
     return await callGemini(summaryPrompt);
   } catch (error) {
@@ -620,7 +2388,8 @@ async function runAgent(goal) {
 async function callGemini(p) {
   if (!API_KEY) throw new Error('Gemini API key is missing. Reload the page and enter your key.');
   const contents = MEMORY.slice(-12).map(m => ({ role: m.role, parts: [{ text: m.text }] }));
-  contents.push({ role: 'user', parts: [{ text: p }] });
+  const todayStr = new Date().toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  contents.push({ role: 'user', parts: [{ text: "[Today's date is " + todayStr + "] " + p }] });
   let lastErr;
 
   for (const m of MODELS) {
@@ -630,7 +2399,7 @@ async function callGemini(p) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           systemInstruction: {
-            parts: [{ text: 'You are J.A.R.V.I.S, a friendly personal assistant for Vamshi. Reply naturally in a warm Telugu-English mix (Telugish), mostly using simple clear language. If you do not know, say so plainly.' }]
+            parts: [{ text: "You are J.A.R.V.I.S. — Tony Stark\'s personal AI from Iron Man. The user\'s name is Jeevan. Address him as boss, occasionally using his name Jeevan for a personal touch. Be witty, loyal and calm, with dry British humor and quiet confidence. You are brilliant and always one step ahead. Reply naturally in a warm Telugu-English mix (Telugish), Telugu script for Telugu, English for technical terms. Keep replies concise, conversational, easy to say aloud. Never break character." }]
           },
           contents
         })
@@ -816,7 +2585,7 @@ async function askVision(base64, mime, q) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             systemInstruction: {
-              parts: [{ text: 'You are J.A.R.V.I.S, a friendly personal assistant for Vamshi. Reply naturally in a warm Telugu-English mix (Telugish), mostly using simple language.' }]
+              parts: [{ text: "You are J.A.R.V.I.S. The user\'s name is Jeevan. Address him as boss when natural. Reply naturally in a warm Telugu-English mix (Telugish), mostly using Telugu script for Telugu and English for technical terms. Keep replies concise, conversational, empathetic, and easy to say aloud." }]
             },
             contents: [{
               role: 'user',
@@ -915,6 +2684,9 @@ function speak(t) {
   }
 
   window.speechSynthesis.cancel();
+  u.onstart = startHum;
+  u.onend = stopHum;
+  u.onerror = stopHum;
   window.speechSynthesis.speak(u);
 }
 
@@ -969,6 +2741,8 @@ clearMemorySetting.addEventListener('click', () => {
   closeSettings();
 });
 
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') requestWakeLock(); });
+
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     if (!settingsPanel.hidden) closeSettings();
@@ -991,6 +2765,92 @@ document.querySelectorAll('[data-prompt]').forEach(button => button.addEventList
   input.focus();
   input.dispatchEvent(new Event('input'));
 }));
+
+// ===== WAKE WORD: HEY JARVIS =====
+let wakeRec = null;
+let wakeMode = false;
+let wakePaused = false;
+let wakeButton = null;
+
+function onWakeWord() {
+  if (wakePaused || !rec) return;
+  wakePaused = true;
+  try { wakeRec.stop(); } catch (e) {}
+  add('SYSTEM: Wake word detected! 🎯', 'ai', true);
+  speak('Yes Jeevan? I am listening.');
+  setTimeout(() => {
+    try {
+      rec.start();
+      micBtn.innerText = '🔴';
+      micBtn.style.boxShadow = '0 0 20px red';
+      setJarvisVisualState('LISTENING');
+    } catch (e) {}
+  }, 1200);
+}
+
+function setWakeMode(on) {
+  wakeMode = Boolean(on);
+  if (!wakeButton) return;
+  if (wakeMode) {
+    wakeButton.innerText = 'WAKE: ON 👂';
+    wakeButton.style.background = '#003300';
+    add("SYSTEM: Wake word ON! Say 'Hey Jarvis'.", 'ai', true);
+    speak('Wake word activated. Say hey Jarvis anytime.');
+    try { wakeRec && wakeRec.start(); } catch (e) {}
+  } else {
+    wakeButton.innerText = 'WAKE: OFF';
+    wakeButton.style.background = '#222';
+    try { wakeRec && wakeRec.stop(); } catch (e) {}
+  }
+}
+
+function startupGreeting() {
+  if (window.__jarvisHasGreeted) return;
+  window.__jarvisHasGreeted = true;
+  const hour = new Date().getHours();
+  const timeOfDay = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  const greeting = timeOfDay + ', Jeevan. All systems online and ready. How may I assist you?';
+  add('J.A.R.V.I.S: ' + greeting, 'ai', true);
+  speak(greeting);
+}
+
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator && document.visibilityState === 'visible') {
+      if (!window.__jarvisWakeLock) window.__jarvisWakeLock = await navigator.wakeLock.request('screen');
+      window.__jarvisWakeLock.addEventListener?.('release', () => { window.__jarvisWakeLock = null; });
+    }
+  } catch (e) {}
+}
+
+function setupWakeWord() {
+  if (!SR || !rec || !micBtn || !micBtn.parentNode) return;
+  wakeRec = new SR();
+  wakeRec.lang = 'en-US';
+  wakeRec.continuous = true;
+  wakeRec.interimResults = true;
+  wakeRec.onresult = e => {
+    let text = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) text += e.results[i][0].transcript;
+    if (/\bhey\s+jarvis\b/i.test(text)) onWakeWord();
+  };
+  wakeRec.onend = () => {
+    if (wakeMode && !wakePaused) setTimeout(() => { try { wakeRec.start(); } catch (e) {} }, 500);
+  };
+  wakeRec.onerror = e => {
+    if (e.error === 'not-allowed') {
+      add('SYSTEM: Mic blocked! Wake word OFF.', 'ai', true);
+      setWakeMode(false);
+    }
+  };
+  wakeButton = document.createElement('button');
+  wakeButton.type = 'button';
+  wakeButton.innerText = 'WAKE: OFF';
+  wakeButton.style.cssText = 'padding:10px;margin:5px;background:#222;color:#0ff;border:1px solid #0ff;border-radius:8px;';
+  micBtn.parentNode.insertBefore(wakeButton, micBtn.nextSibling);
+  wakeButton.onclick = () => setWakeMode(!wakeMode);
+  window.__jarvisWakeButton = wakeButton;
+}
 
 // ===== ORBS INITIALIZATION =====
 let orbInstance = null;
@@ -1036,4 +2896,10 @@ function setJarvisVisualState(state) {
 window.addEventListener('load', () => {
   initOrbs();
   setJarvisVisualState('IDLE');
+  restoreTimer();
+  try { setupWakeWord(); } catch (e) {}
+  setTimeout(startupGreeting, 1500);
+  requestWakeLock();
 });
+
+
