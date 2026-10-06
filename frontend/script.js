@@ -1,1148 +1,10 @@
-Loading older messages…
-vati lo yedhi best cheppuone line li
-New code is best overall — AI, JARVIS personality, date awareness, tools, Nano Music, contacts, and command handling are more advanced.
-
-old code lo ki new code features ni add chesi full code ivvu   name Jeevan anni vunadali
-
-Worked for 6m 7s
-Done. I merged the old code + new code features, while keeping the old UI/history/sidebar/orb architecture.
-
-Added/merged:
-
-Jeevan name everywhere — old Chandu/Vamshi/Vamsi references removed.
-New Gemini model list
-Jeevan + JARVIS personality prompt
-Current IST date awareness
-Nano Music commands
-Instagram/Facebook/X/WhatsApp/Telegram/Gmail/GitHub/Spotify aliases
-Phone contact sync/add/delete/call
-WhatsApp contact messaging
-YouTube + Google search
-Reminder + timer restore
-Alarm with sound/vibration
-JARVIS voice hum effect
-“Hey Jarvis” wake word
-Screen Wake Lock
-Startup greeting
-Improved Agent Mode fallback/summary
-Existing old memory/history/settings/orb features preserved
-I also checked the merged JavaScript with node --check — syntax check passed.
-
-Full merged code
-Note: Boss is still used as JARVIS's title/address, but the actual user's name is Jeevan.
-
-
-CHITTI_JARVIS_Jeevan_Merged.js
-Code
-download ravatam ledhukani ha code yela rayali yela vundali enti anni propmt ivvu
-అవును 👍 Download కాకపోతే file ఇవ్వకుండా, Claude Code / Google AI Studio కి paste చేయడానికి ఒక complete master prompt ఇస్తాను.
-
-ఈ prompt లో ముఖ్యంగా old code structure preserve చేసి, new code features merge చేయాలి, మరియు Jeevan మాత్రమే user name ఉండాలి.
-
-You are an expert JavaScript engineer.
-
-I have an existing J.A.R.V.I.S.-style personal AI assistant JavaScript project.
-
-IMPORTANT:
-Do NOT redesign the project.
-Do NOT remove existing working functionality.
-Do NOT create a simplified replacement.
-Do NOT rewrite the project from scratch.
-
-Your job is:
-
-OLD CODE + NEW CODE FEATURES = ONE FINAL STABLE CODE
-
-The OLD CODE architecture, UI behavior, memory/history system, sidebar, settings, orb visualization, voice system, timer system, and existing command handling must remain intact.
-
-Then carefully merge the useful features from the NEW CODE into the OLD CODE.
-
-==================================================
-1. USER NAME — VERY IMPORTANT
-==================================================
-
-The user's name MUST be:
-
-Jeevan
-
-Remove/replace every occurrence of:
-
-Chandu
-Vamshi
-Vamsi
-
-with:
-
-Jeevan
-
-Do a complete case-insensitive search through the entire JavaScript code.
-
-There must be NO remaining:
-Chandu
-Vamshi
-Vamsi
-
-inside:
-- system prompts
-- Gemini prompts
-- comments where it refers to the user
-- greeting messages
-- voice responses
-- memory prompts
-- UI text
-- command responses
-
-Jeevan is the ONLY user name.
-
-J.A.R.V.I.S. may call the user:
-
-"Jeevan"
-or
-"Boss"
-
-Use both naturally.
-
-Example:
-
-"Good morning, Boss."
-"Jeevan, Chrome open chesthunna."
-"Sure Boss."
-"Done, Jeevan."
-
-==================================================
-2. PRESERVE OLD ARCHITECTURE
-==================================================
-
-The OLD CODE is the base.
-
-Do NOT remove existing:
-
-- HTML element IDs
-- CSS class expectations
-- JavaScript function names
-- event listeners
-- UI state management
-- sidebar
-- conversation history
-- settings
-- theme system
-- memory system
-- orb visualization
-- audio visualizer
-- voice state system
-- timer system
-- notification system
-- vibration
-- JARVIS hum
-- existing Gemini integration
-- existing command parser
-- existing Agent Mode
-- existing tool system
-- existing error handling
-
-If a new feature conflicts with an old function:
-
-DO NOT delete the old function.
-
-Merge the functionality safely.
-
-==================================================
-3. GEMINI MODELS
-==================================================
-
-Use the newer model fallback architecture:
-
-const MODELS = [
-  "gemini-3.6-flash",
-  "gemini-3.5-flash-lite",
-  "gemini-flash-latest"
-];
-
-The code must try models in order.
-
-If one model fails, automatically try the next model.
-
-Do not expose API keys in logs.
-
-==================================================
-4. JEEVAN JARVIS PERSONALITY
-==================================================
-
-Use this as the main Gemini system instruction:
-
-"You are J.A.R.V.I.S., Jeevan's personal AI assistant.
-
-You are inspired by the calm, intelligent and witty personality of J.A.R.V.I.S.
-
-Address the user naturally as Jeevan or Boss.
-
-You are loyal, calm, confident, intelligent and slightly witty.
-
-Use warm Telugu-English mixed language (Telugish).
-
-Use Telugu script for Telugu sentences when appropriate.
-
-Use English for technical terms, application names and commands.
-
-Keep normal answers concise and conversational.
-
-Make responses natural for voice playback.
-
-Do not sound robotic.
-
-Do not repeatedly say the same greeting.
-
-Do not call the user Chandu, Vamshi or Vamsi.
-
-The user's name is Jeevan.
-
-Never break character."
-
-==================================================
-5. CURRENT DATE / IST
-==================================================
-
-Before sending a normal request to Gemini, inject the current India date.
-
-Use:
-
-const todayStr = new Date().toLocaleDateString('en-IN', {
-  timeZone: 'Asia/Kolkata',
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
-
-Send:
-
-"[Today's date is " + todayStr + "] " + userPrompt
-
-This prevents date confusion.
-
-==================================================
-6. MEMORY
-==================================================
-
-Preserve the existing MEMORY system.
-
-Do not replace it.
-
-Continue using recent conversation context.
-
-Example architecture:
-
-const contents = MEMORY.slice(-12).map(m => ({
-  role: m.role,
-  parts: [{ text: m.text }]
-}));
-
-Then append the current user request.
-
-Memory must continue working with:
-
-- user messages
-- assistant messages
-- voice commands
-- typed commands
-- Gemini responses
-
-==================================================
-7. HISTORY / SIDEBAR
-==================================================
-
-Keep the existing conversation history system.
-
-Preserve:
-
-HISTORY_KEY
-
-ACTIVE_CONVERSATION_KEY
-
-conversation creation
-
-conversation titles
-
-new conversation
-
-history rendering
-
-history selection
-
-settings
-
-theme
-
-memory controls
-
-Do NOT remove these.
-
-==================================================
-8. JARVIS ORB
-==================================================
-
-Preserve the existing orb visualization.
-
-Keep:
-
-IDLE
-LISTENING
-THINKING
-SPEAKING
-ERROR
-
-states.
-
-The orb should react correctly to:
-
-- microphone listening
-- Gemini thinking
-- speaking
-- errors
-
-Do not replace the existing orb implementation unless absolutely necessary.
-
-==================================================
-9. VOICE SYSTEM
-==================================================
-
-Preserve existing Speech Recognition and Speech Synthesis.
-
-Voice flow:
-
-Wake word
-→ Listening
-→ Speech-to-text
-→ Command processing
-→ Gemini/tools
-→ Response
-→ Text-to-speech
-→ Speaking
-→ Idle
-
-Prevent duplicate voice sessions.
-
-Do not start multiple recognizers simultaneously.
-
-Handle microphone permission errors gracefully.
-
-==================================================
-10. WAKE WORD
-==================================================
-
-Support:
-
-"hey jarvis"
-
-"hey JARVIS"
-
-"hey chitti"
-
-"hey Chitti"
-
-as wake phrases if the existing architecture supports them.
-
-The important requirement is:
-
-Wake word should activate the assistant.
-
-After wake word detection, listen for the actual command.
-
-Avoid repeatedly triggering itself.
-
-==================================================
-11. WEBSITE COMMANDS
-==================================================
-
-Add/preserve website aliases:
-
-instagram
-insta
-
-facebook
-fb
-
-twitter
-x
-
-whatsapp
-
-telegram
-
-gmail
-
-github
-
-spotify
-
-music
-
-youtube
-
-google
-
-Nano Music
-
-Example:
-
-"open instagram"
-
-"instagram open"
-
-"open whatsapp"
-
-"open telegram"
-
-"open gmail"
-
-"open github"
-
-"open spotify"
-
-"open youtube"
-
-"open google"
-
-These should open the correct website.
-
-==================================================
-12. NANO MUSIC
-==================================================
-
-Add Nano Music command support.
-
-Use a single constant:
-
-const NANO_URL = "https://music.youtube.com";
-
-Allow:
-
-"open nano music"
-
-"nano music open"
-
-"nano music"
-
-"play Believer on nano music"
-
-"nano music play Believer"
-
-Open the search URL for the requested song.
-
-Do not break normal YouTube functionality.
-
-==================================================
-13. YOUTUBE
-==================================================
-
-Support:
-
-"open youtube"
-
-"youtube open"
-
-"play [song]"
-
-"youtube search [query]"
-
-"search youtube for [query]"
-
-Example:
-
-"play Believer"
-
-should search YouTube for Believer.
-
-Return a natural response such as:
-
-"Playing Believer on YouTube, Boss."
-
-==================================================
-14. GOOGLE SEARCH
-==================================================
-
-Support:
-
-"google search [query]"
-
-"search google for [query]"
-
-"search on google [query]"
-
-Open Google search safely.
-
-==================================================
-15. WIKIPEDIA / GENERAL SEARCH
-==================================================
-
-Preserve the existing search tool.
-
-Support:
-
-"search [query]"
-
-"look up [query]"
-
-Use the existing Wikipedia API/search implementation where available.
-
-Do not invent search results.
-
-==================================================
-16. TIME
-==================================================
-
-Support:
-
-"time"
-
-"what time is it"
-
-"current time"
-
-"tell me the time"
-
-"samayam entha"
-
-"టైమ్"
-
-Return India time:
-
-Asia/Kolkata
-
-==================================================
-17. DATE
-==================================================
-
-Support:
-
-"today's date"
-
-"current date"
-
-"what is today's date"
-
-"date today"
-
-Return India date.
-
-==================================================
-18. WEATHER
-==================================================
-
-Preserve the existing weather tool.
-
-Support:
-
-"weather"
-
-"weather in Hyderabad"
-
-"Hyderabad weather"
-
-"weather today"
-
-Do not invent weather information.
-
-If location permission is needed, handle it gracefully.
-
-If city-based weather functionality exists, preserve it.
-
-==================================================
-19. NEWS
-==================================================
-
-Preserve existing news functionality.
-
-Support:
-
-"news"
-
-"latest news"
-
-"headlines"
-
-"research"
-
-Do not fabricate headlines.
-
-==================================================
-20. CRYPTO
-==================================================
-
-Preserve existing crypto tool.
-
-Support:
-
-bitcoin
-
-BTC
-
-crypto
-
-Do not fabricate prices.
-
-==================================================
-21. AGENT MODE
-==================================================
-
-Preserve the existing Agent Mode.
-
-Agent tools:
-
-time
-weather
-news
-crypto
-
-Use:
-
-const AGENT_TOOLS = {
-  time: async () => handleTools("current time"),
-  weather: async () => handleTools("weather"),
-  news: async () => handleTools("news"),
-  crypto: async () => handleTools("bitcoin")
-};
-
-Agent requests include:
-
-agent
-
-agent mode
-
-run agent
-
-use agent
-
-briefing
-
-research
-
-analyze
-
-analysis
-
-and appropriate planning requests.
-
-==================================================
-22. AGENT FALLBACK
-==================================================
-
-If Gemini is temporarily unavailable because of:
-
-429
-503
-quota
-rate limit
-overload
-temporary failure
-network error
-unknown model
-
-use the existing safe fallback planner.
-
-Fallback should identify tools locally.
-
-Example:
-
-morning briefing
-→ time + weather + news
-
-crypto request
-→ crypto
-
-weather request
-→ weather
-
-time request
-→ time
-
-==================================================
-23. AGENT SUMMARY
-==================================================
-
-After tools finish, summarize only using actual tool results.
-
-Use this logic:
-
-"Goal: " + goal +
-". Tool results: " + results +
-". Give a short natural spoken answer in the user's language. " +
-"Use only facts in the results; do not invent weather, headlines, or prices. " +
-"Clearly mention any unavailable tool."
-
-If Gemini fails during summary, use local tool-result summary.
-
-==================================================
-24. PHONE CONTACTS
-==================================================
-
-Preserve/add phone contact support where browser support exists.
-
-Support:
-
-"sync contacts"
-
-Use:
-
-navigator.contacts.select(
-  ['name', 'tel'],
-  { multiple: true }
-)
-
-Store contacts safely in:
-
-localStorage.jarvis_contacts
-
-Do not upload contacts to third-party services.
-
-==================================================
-25. CALL CONTACT
-==================================================
-
-Support:
-
-"call Rahul"
-
-"please call Rahul"
-
-Use stored contacts.
-
-Normalize phone number safely.
-
-If the browser/device supports tel:
-
-window.location.href = "tel:" + number;
-
-If contact does not exist:
-
-"Jeevan, Rahul contact lo number dorakaledu."
-
-==================================================
-26. WHATSAPP CONTACT MESSAGE
-==================================================
-
-Support:
-
-"WhatsApp Rahul hello"
-
-"message Rahul on WhatsApp hello"
-
-Use stored contact numbers.
-
-Open:
-
-https://wa.me/
-
-with encoded message.
-
-Do NOT send arbitrary messages silently if the architecture requires confirmation.
-
-Preserve existing confirmation/security behavior.
-
-==================================================
-27. WHATSAPP OPEN
-==================================================
-
-Support:
-
-"open whatsapp"
-
-"whatsapp open"
-
-For Android where supported, use WhatsApp Android intent.
-
-For browser fallback, use WhatsApp Web.
-
-Do not break desktop browser behavior.
-
-==================================================
-28. OPEN APPLICATION / WEBSITE
-==================================================
-
-Preserve existing open command parser.
-
-Support:
-
-"open chrome"
-
-"chrome open"
-
-"open spotify"
-
-"spotify open"
-
-"open github"
-
-"open telegram"
-
-Only open known safe website/application aliases.
-
-Do not execute arbitrary shell commands from user input.
-
-==================================================
-29. URL SAFETY
-==================================================
-
-If user says:
-
-"open https://example.com"
-
-Only allow:
-
-http:
-https:
-
-Reject:
-
-javascript:
-data:
-file:
-shell:
-other dangerous protocols.
-
-==================================================
-30. SECURITY
-==================================================
-
-Never execute arbitrary JavaScript from user voice commands.
-
-Never execute arbitrary shell commands.
-
-Never expose:
-
-API keys
-tokens
-passwords
-private contact information
-
-in UI messages or logs.
-
-Preserve existing input filtering.
-
-==================================================
-31. TIMER
-==================================================
-
-Preserve the old timer system.
-
-Support commands such as:
-
-"set timer for 5 minutes"
-
-"timer 10 minutes"
-
-Timer should:
-
-- save end time
-- survive page refresh
-- restore from localStorage
-- notify when completed
-- speak completion
-- vibrate where supported
-
-Do not remove the existing timer implementation.
-
-==================================================
-32. NOTIFICATIONS
-==================================================
-
-Preserve browser notification support.
-
-Request permission only when necessary.
-
-Do not repeatedly ask for permission.
-
-==================================================
-33. JARVIS HUM
-==================================================
-
-Preserve the existing JARVIS background hum.
-
-Do not remove the AudioContext oscillator implementation.
-
-Hum should:
-
-start when appropriate
-
-stop cleanly
-
-not create multiple AudioContexts unnecessarily.
-
-==================================================
-34. TEXT TO SPEECH
-==================================================
-
-Preserve existing TTS.
-
-The response should be spoken naturally.
-
-Support Telugu-English mixed responses.
-
-Avoid speaking raw JSON, code, URLs or internal tool logs.
-
-==================================================
-35. ERROR HANDLING
-==================================================
-
-Every asynchronous tool should use try/catch.
-
-Errors should produce user-friendly messages.
-
-Never expose raw stack traces to the user.
-
-Example:
-
-Instead of:
-
-TypeError: Cannot read properties of undefined...
-
-say:
-
-"Sorry Boss, aa command execute cheyyalekapoyanu."
-
-==================================================
-36. DUPLICATE EXECUTION PREVENTION
-==================================================
-
-Do not execute the same voice command twice because of:
-
-- SpeechRecognition duplicate events
-- repeated wake word
-- double click
-- multiple listeners
-- repeated TTS callback
-
-Use appropriate state guards.
-
-==================================================
-37. EXISTING UI
-==================================================
-
-DO NOT change:
-
-- colors
-- layout
-- buttons
-- orb position
-- sidebar design
-- settings design
-- chat design
-- animations
-
-unless a change is absolutely required for a new feature.
-
-The existing UI is considered FINAL.
-
-==================================================
-38. CODE QUALITY
-==================================================
-
-Do not create duplicate functions.
-
-Before adding a function, search the existing code.
-
-If function already exists:
-
-modify/extend it.
-
-Do NOT create:
-
-handleTools2()
-callGemini2()
-speak2()
-startListening2()
-
-etc.
-
-Keep one canonical implementation.
-
-==================================================
-39. GLOBAL CONSTANTS
-==================================================
-
-Avoid duplicate declarations such as:
-
-const MODELS
-const SITES
-const NANO_URL
-const MEMORY
-
-There must be only one authoritative declaration for each.
-
-==================================================
-40. JAVASCRIPT COMPATIBILITY
-==================================================
-
-The final code must be valid modern browser JavaScript.
-
-Avoid unsupported syntax.
-
-Use async/await safely.
-
-Check:
-
-brackets
-parentheses
-quotes
-template literals
-regex
-object syntax
-function declarations
-
-==================================================
-41. FINAL VALIDATION
-==================================================
-
-Before giving the final code:
-
-1. Search for:
-   Chandu
-   Vamshi
-   Vamsi
-
-They must return ZERO matches.
-
-2. Search for duplicate declarations.
-
-3. Check every function reference.
-
-4. Check every variable reference.
-
-5. Check all event listeners.
-
-6. Check Gemini request body.
-
-7. Check all tool functions.
-
-8. Check Agent Mode.
-
-9. Check voice functions.
-
-10. Check TTS.
-
-11. Check timer.
-
-12. Check history.
-
-13. Check localStorage.
-
-14. Check contact handling.
-
-15. Check WhatsApp.
-
-16. Check website aliases.
-
-17. Check Nano Music.
-
-18. Check YouTube.
-
-19. Check Google.
-
-20. Check weather/news/crypto.
-
-21. Check error handling.
-
-22. Run JavaScript syntax validation equivalent to:
-
-node --check final.js
-
-The final code MUST pass syntax validation.
-
-==================================================
-42. IMPORTANT — DO NOT LOSE OLD FEATURES
-==================================================
-
-The final output must be:
-
-OLD CODE FEATURES
-+
-NEW CODE FEATURES
-+
-Jeevan name correction
-+
-bug fixes
-=
-ONE COMPLETE FINAL JAVASCRIPT FILE
-
-Do not give me only snippets.
-
-Do not give me partial code.
-
-Do not say "add this manually".
-
-Do not say "rest of the code remains same".
-
-I need the COMPLETE final JavaScript code.
-
-==================================================
-43. FINAL RESPONSE FORMAT
-==================================================
-
-After completing the merge, give:
-
-1. COMPLETE final JavaScript code
-2. Short list of merged features
-3. Validation result
-4. Exact list of removed old names
-
-Validation should say:
-
-Jeevan name check: PASS
-Chandu occurrences: 0
-Vamshi occurrences: 0
-Vamsi occurrences: 0
-JavaScript syntax: PASS
-Duplicate declarations: CHECKED
-Old architecture preserved: YES
-New features merged: YES
-
-Do not omit any part of the final code.
-Important: ఈ prompt ని Claude Code / Google AI Studio లో old code + new code రెండూ attach చేసి run చేయి. అప్పుడు అది రెండు files ని చూసి నిజంగా merge చేయగలదు.
-
-prompt yela echavo same alaney code ni ivvu correct ga
-
-Worked for 44s
-అవును. ఇప్పుడు ఆ prompt లో చెప్పిన requirements కి match అయ్యే full merged code ని clean చేసి ఇచ్చాను.
-
-Old architecture preserve
-New features merge
-Jeevan మాత్రమే user name
-Chandu / Vamshi / Vamsi = 0 occurrences
-Gemini models
-IST date
-Memory + History
-Orb states
-Voice/TTS
-Wake word
-Nano Music
-YouTube/Google
-WhatsApp
-Contacts
-Call
-Timer/Alarm
-Weather/News/Crypto
-Agent Mode + fallback
-Existing settings/sidebar preserved
-JavaScript syntax check కూడా PASS అయింది.
-
-Full code
-Download issue ఉంటే ఇదే code plain-text format లో:
-
-Important: ఈ code ని నీ existing script.js స్థానంలో పెట్టే ముందు backup తీసుకో. UI HTML/CSS లో ఉన్న IDs (chat, msg, mic-btn, history-list, settings-panel etc.) unchanged గా ఉండాలి.
-
-
-CHITTI_JARVIS_Jeevan_Merged.js
-Code
-
-CHITTI_JARVIS_Jeevan_Merged.txt
-Document
 // ===== 1. API KEY =====
 let API_KEY = localStorage.getItem('jarvis_key');
 if (!API_KEY) {
   API_KEY = prompt('Enter your Gemini API Key:');
   if (API_KEY) localStorage.setItem('jarvis_key', API_KEY);
 }
-const MODELS = ["gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"];
+const MODELS = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-flash-latest"];
 
 // ===== 2. MEMORY =====
 let MEMORY = [];
@@ -2394,7 +1256,7 @@ async function callGemini(p) {
 
   for (const m of MODELS) {
     try {
-      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent?key=' + encodeURIComponent(API_KEY), {
+      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(m) + ':generateContent?key=' + encodeURIComponent(API_KEY), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -2632,7 +1494,12 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const rec = SR ? new SR() : null;
 if (rec) rec.lang = 'en-US';
 if (rec) rec.onresult = (e) => {
-  const t = e.results[0][0].transcript;
+  const result = e.results?.[e.resultIndex] || e.results?.[0];
+  if (!result || !result.isFinal) return;
+
+  const t = String(result[0]?.transcript || '').trim();
+  if (!t) return;
+
   add('YOU: ' + t, 'user');
   askGemini(t);
 };
@@ -2641,17 +1508,30 @@ micBtn.onclick = () => {
     add('SYSTEM: Voice input is not supported in this browser.', 'ai');
     return;
   }
-  try {
-    rec.start();
+
+  wakePaused = true;
+  voiceCommandActive = true;
+  safeStopRecognition(wakeRec);
+
+  if (safeStartRecognition(rec)) {
     micBtn.innerText = 'LISTENING...';
+    micBtn.style.boxShadow = '0 0 20px red';
     setJarvisVisualState('LISTENING');
-  } catch (e) {
-    micBtn.innerText = '🎙️';
   }
 };
 if (rec) rec.onend = () => {
   micBtn.innerText = '🎙️';
+  micBtn.style.boxShadow = '';
+  voiceCommandActive = false;
+  wakePaused = false;
   setJarvisVisualState('IDLE');
+
+  if (wakeMode && wakeRec) {
+    window.clearTimeout(wakeRestartTimer);
+    wakeRestartTimer = window.setTimeout(() => {
+      if (wakeMode && !voiceCommandActive && !wakePaused) safeStartRecognition(wakeRec);
+    }, 600);
+  }
 };
 
 let voices = [];
@@ -2771,85 +1651,120 @@ let wakeRec = null;
 let wakeMode = false;
 let wakePaused = false;
 let wakeButton = null;
+let wakeRestartTimer = null;
+let voiceCommandActive = false;
+
+function safeStartRecognition(instance) {
+  if (!instance) return false;
+  try {
+    instance.start();
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function safeStopRecognition(instance) {
+  if (!instance) return;
+  try { instance.stop(); } catch (e) {}
+}
 
 function onWakeWord() {
-  if (wakePaused || !rec) return;
+  if (!wakeMode || wakePaused || voiceCommandActive || !rec || !wakeRec) return;
+
   wakePaused = true;
-  try { wakeRec.stop(); } catch (e) {}
+  voiceCommandActive = true;
+  safeStopRecognition(wakeRec);
+
   add('SYSTEM: Wake word detected! 🎯', 'ai', true);
   speak('Yes Jeevan? I am listening.');
-  setTimeout(() => {
-    try {
-      rec.start();
+
+  window.clearTimeout(window.__jarvisWakeCommandTimer);
+  window.__jarvisWakeCommandTimer = window.setTimeout(() => {
+    const started = safeStartRecognition(rec);
+    if (started) {
       micBtn.innerText = '🔴';
       micBtn.style.boxShadow = '0 0 20px red';
       setJarvisVisualState('LISTENING');
-    } catch (e) {}
+    } else {
+      voiceCommandActive = false;
+      wakePaused = false;
+      if (wakeMode) safeStartRecognition(wakeRec);
+      setJarvisVisualState('IDLE');
+    }
   }, 1200);
 }
 
 function setWakeMode(on) {
   wakeMode = Boolean(on);
+  wakePaused = false;
+  voiceCommandActive = false;
+
   if (!wakeButton) return;
+
   if (wakeMode) {
     wakeButton.innerText = 'WAKE: ON 👂';
     wakeButton.style.background = '#003300';
-    add("SYSTEM: Wake word ON! Say 'Hey Jarvis'.", 'ai', true);
-    speak('Wake word activated. Say hey Jarvis anytime.');
-    try { wakeRec && wakeRec.start(); } catch (e) {}
+    add("SYSTEM: Wake word ON. Say 'Hey Jarvis'.", 'ai', true);
+    safeStartRecognition(wakeRec);
   } else {
     wakeButton.innerText = 'WAKE: OFF';
     wakeButton.style.background = '#222';
-    try { wakeRec && wakeRec.stop(); } catch (e) {}
+    safeStopRecognition(wakeRec);
+    window.clearTimeout(wakeRestartTimer);
   }
-}
-
-function startupGreeting() {
-  if (window.__jarvisHasGreeted) return;
-  window.__jarvisHasGreeted = true;
-  const hour = new Date().getHours();
-  const timeOfDay = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
-  const greeting = timeOfDay + ', Jeevan. All systems online and ready. How may I assist you?';
-  add('J.A.R.V.I.S: ' + greeting, 'ai', true);
-  speak(greeting);
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator && document.visibilityState === 'visible') {
-      if (!window.__jarvisWakeLock) window.__jarvisWakeLock = await navigator.wakeLock.request('screen');
-      window.__jarvisWakeLock.addEventListener?.('release', () => { window.__jarvisWakeLock = null; });
-    }
-  } catch (e) {}
 }
 
 function setupWakeWord() {
   if (!SR || !rec || !micBtn || !micBtn.parentNode) return;
+
   wakeRec = new SR();
   wakeRec.lang = 'en-US';
   wakeRec.continuous = true;
   wakeRec.interimResults = true;
+  wakeRec.maxAlternatives = 3;
+
   wakeRec.onresult = e => {
-    let text = '';
-    for (let i = e.resultIndex; i < e.results.length; i++) text += e.results[i][0].transcript;
-    if (/\bhey\s+jarvis\b/i.test(text)) onWakeWord();
+    if (!wakeMode || wakePaused || voiceCommandActive) return;
+
+    let transcript = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      transcript += ' ' + (e.results[i][0]?.transcript || '');
+    }
+
+    if (/\bhey\s+jarvis\b/i.test(transcript.trim())) {
+      onWakeWord();
+    }
   };
+
   wakeRec.onend = () => {
-    if (wakeMode && !wakePaused) setTimeout(() => { try { wakeRec.start(); } catch (e) {} }, 500);
+    if (!wakeMode || wakePaused || voiceCommandActive) return;
+
+    window.clearTimeout(wakeRestartTimer);
+    wakeRestartTimer = window.setTimeout(() => {
+      if (wakeMode && !wakePaused && !voiceCommandActive) {
+        safeStartRecognition(wakeRec);
+      }
+    }, 500);
   };
+
   wakeRec.onerror = e => {
-    if (e.error === 'not-allowed') {
-      add('SYSTEM: Mic blocked! Wake word OFF.', 'ai', true);
+    if (e?.error === 'not-allowed' || e?.error === 'service-not-allowed') {
+      add('SYSTEM: Microphone permission blocked. Wake word OFF.', 'ai', true);
       setWakeMode(false);
     }
   };
-  wakeButton = document.createElement('button');
-  wakeButton.type = 'button';
-  wakeButton.innerText = 'WAKE: OFF';
-  wakeButton.style.cssText = 'padding:10px;margin:5px;background:#222;color:#0ff;border:1px solid #0ff;border-radius:8px;';
-  micBtn.parentNode.insertBefore(wakeButton, micBtn.nextSibling);
-  wakeButton.onclick = () => setWakeMode(!wakeMode);
-  window.__jarvisWakeButton = wakeButton;
+
+  if (!wakeButton) {
+    wakeButton = document.createElement('button');
+    wakeButton.type = 'button';
+    wakeButton.innerText = 'WAKE: OFF';
+    wakeButton.style.cssText =
+      'padding:10px;margin:5px;background:#222;color:#0ff;border:1px solid #0ff;border-radius:8px;';
+    micBtn.parentNode.insertBefore(wakeButton, micBtn.nextSibling);
+    wakeButton.onclick = () => setWakeMode(!wakeMode);
+    window.__jarvisWakeButton = wakeButton;
+  }
 }
 
 // ===== ORBS INITIALIZATION =====
@@ -2901,5 +1816,3 @@ window.addEventListener('load', () => {
   setTimeout(startupGreeting, 1500);
   requestWakeLock();
 });
-
-
